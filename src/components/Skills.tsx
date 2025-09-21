@@ -1,31 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 
 const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: [
-        { name: "C++", level: 70, status: "Intermediate" },
-        { name: "Java", level: 70, status: "Intermediate" },
-        { name: "Python", level: 40, status: "Learning" }
-      ]
+      skills: ["C++", "Java", "Python"]
     },
     {
       title: "Testing & QA",
-      skills: [
-        { name: "Manual Testing", level: 70, status: "Intermediate" },
-        { name: "Automated Testing", level: 40, status: "Learning" },
-        { name: "Test Case Design", level: 70, status: "Intermediate" }
-      ]
+      skills: ["Manual Testing", "Automated Testing", "Test Case Design"]
     },
     {
       title: "Tools & Technologies",
-      skills: [
-        { name: "Selenium", level: 40, status: "Learning" },
-        { name: "Postman", level: 40, status: "Learning" },
-        { name: "Git", level: 70, status: "Intermediate" }
-      ]
+      skills: ["Selenium", "Postman", "Git"]
     }
   ];
 
@@ -43,14 +30,11 @@ const Skills = () => {
               <CardHeader>
                 <CardTitle className="text-xl text-center">{category.title}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.status}</span>
-                    </div>
-                    <Progress value={skill.level} className="h-2" />
+                  <div key={skillIndex} className="flex items-center">
+                    <span className="text-sm mr-2">•</span>
+                    <span className="font-medium">{skill}</span>
                   </div>
                 ))}
               </CardContent>
