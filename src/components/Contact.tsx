@@ -3,8 +3,68 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, GraduationCap, Briefcase, Search } from "lucide-react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { useToast } from "@/components/ui/use-toast";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    phone: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        'service_xsanrpb',
+        'template_fh6t509',
+        {
+          from_phone: formData.phone,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Abdelrahman Emad'
+        },
+        'E7VOxgVprPSrPOGgt'
+      );
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+
+      setFormData({
+        phone: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -76,14 +136,41 @@ const Contact = () => {
               <CardTitle>Send Me a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <Input placeholder="Phone Number" />
-                  <Input placeholder="Email Address" type="email" />
+                  <Input 
+                    name="phone"
+                    placeholder="Phone Number" 
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
+                  <Input 
+                    name="email"
+                    placeholder="Email Address" 
+                    type="email" 
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
-                <Input placeholder="Subject" />
-                <Textarea placeholder="Message" rows={6} />
-                <Button className="w-full">Send Message</Button>
+                <Input 
+                  name="subject"
+                  placeholder="Subject" 
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  required
+                />
+                <Textarea 
+                  name="message"
+                  placeholder="Message" 
+                  rows={6} 
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  required
+                />
+                <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </Button>
               </form>
             </CardContent>
           </Card>
