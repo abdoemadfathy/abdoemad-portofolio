@@ -8,12 +8,28 @@ const About = () => {
         <h2 className="text-4xl font-bold text-center mb-16">About Me</h2>
         
         <div className="max-w-4xl mx-auto">
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            I'm a Computer Science student specializing in Artificial Intelligence, passionate about Software Testing and Quality Assurance. Currently building skills in manual and automated testing with tools like Selenium and Postman, and eager to gain practical experience.
+          <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+            I am a QA Tester focused on delivering reliable and bug-free digital products.
+            My mission is to ensure that websites and applications are functional, user-friendly, and secure before reaching users.
+          </p>
+          
+          <div className="text-lg text-muted-foreground mb-6 leading-relaxed">
+            <p className="mb-4">I provide:</p>
+            <ul className="space-y-2 ml-6">
+              <li>• Comprehensive test case design and execution</li>
+              <li>• Detailed bug reports with reproduction steps, severity levels, and screenshots</li>
+              <li>• Cross-browser and device testing (Chrome, Firefox, Safari, Android, iOS)</li>
+              <li>• UI/UX reviews to uncover inconsistencies and improve user experience</li>
+              <li>• Support with basic automation tools (Selenium, Postman, OWASP ZAP)</li>
+            </ul>
+          </div>
+          
+          <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
+            My approach is built on precision and actionable results — helping development teams fix issues faster and launch stable products with confidence.
           </p>
           
           <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-            My journey combines the analytical thinking required for AI development with the meticulous attention to detail essential for quality assurance. I believe that robust testing practices are fundamental to building reliable and intelligent systems.
+            If you're looking for a QA partner who saves you time, money, and protects your product's reputation, feel free to check my work and connect with me.
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
