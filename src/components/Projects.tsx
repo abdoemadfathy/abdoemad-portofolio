@@ -6,6 +6,51 @@ import { ExternalLink, Github, Star } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
+      title: "E-Commerce QA Graduation Project – OpenCart",
+      description: "Software Quality Assurance graduation project for an e-commerce platform (OpenCart), covering the full QA lifecycle with manual and automated testing.",
+      period: "2025",
+      technologies: ["Manual Testing", "Selenium WebDriver", "Cucumber (BDD)", "Postman", "SQL", "JIRA"],
+      features: [
+        "Performed manual functional and non-functional testing",
+        "Automated critical user journeys using Selenium WebDriver with Cucumber (BDD)",
+        "Conducted API testing using Postman and validated backend data using SQL",
+        "Prepared complete test documentation and managed defect tracking using JIRA"
+      ],
+      skills: ["Full QA Lifecycle", "Test Automation", "API Testing", "Defect Management", "Test Documentation"],
+      github: "https://github.com/abdoemadfathy/GraduationProject_DEPI_SoftwareTesting",
+      featured: true
+    },
+    {
+      title: "API Testing Project – Restful Booker Automation",
+      description: "API testing project on the Restful Booker API covering authentication, CRUD operations, negative testing, and automation with professional reporting.",
+      period: "2025",
+      technologies: ["Postman", "API Testing", "Manual Testing", "Java", "Newman"],
+      features: [
+        "Designed and executed requests covering authentication and CRUD operations",
+        "Implemented Postman test scripts to validate status codes and response data",
+        "Used global and environment variables for dynamic data management",
+        "Automated workflows using Pre-request Scripts and Collection Runner/Newman"
+      ],
+      skills: ["API Testing", "Test Automation", "Postman Scripting", "Newman", "Test Reporting"],
+      github: "https://github.com/abdoemadfathy/API-Testing-Project-using-Postman-Restful-Booker-Automation",
+      featured: true
+    },
+    {
+      title: "Manual Testing Project – Swag Labs",
+      description: "Manual testing project on the Swag Labs demo website covering Login, Add to Cart, Checkout, and Sorting functionalities with detailed test cases and bug reports.",
+      period: "2025",
+      technologies: ["Manual Testing", "Test Cases", "Bug Reporting", "Test Planning", "UAT"],
+      features: [
+        "Designed and executed detailed test cases with preconditions and expected/actual results",
+        "Tested multiple functionalities: Login, Add to Cart, Checkout, and Sorting",
+        "Identified critical defects using different user roles",
+        "Documented professional bug reports with severity, priority, and reproduction steps"
+      ],
+      skills: ["Manual Testing", "Test Case Design", "Bug Reporting", "UAT", "Defect Documentation"],
+      github: "https://github.com/abdoemadfathy/Manual-Testing-Project---Swag-Labs-Test-Cases-Bug-Reports-",
+      featured: true
+    },
+    {
       title: "Guru99 Bank Testing Project",
       description: "End-to-end manual testing project for Guru99 Bank application, covering different modules and flows.",
       period: "Sep 2025",
@@ -18,7 +63,7 @@ const Projects = () => {
       ],
       skills: ["Test Case Design", "Manual Testing", "Bug Reporting", "Regression Testing", "Documentation"],
       github: "https://github.com/abdoemadfathy/Testing-Portfolio",
-      featured: true
+      featured: false
     },
     {
       title: "Mini Banking System",
