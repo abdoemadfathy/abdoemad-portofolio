@@ -29,7 +29,7 @@ const Hero = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-          AI Student | Software Tester | Passionate About Quality Assurance
+          Delivering Excellence in Software Quality Assurance
         </p>
         
         <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
