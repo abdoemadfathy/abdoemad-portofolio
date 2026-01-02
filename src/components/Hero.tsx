@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import profileImage from "@/assets/profile-image.jpg";
+import profileImage from "@/assets/profile-image.png";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -18,7 +18,7 @@ const Hero = () => {
           <img 
             src={profileImage} 
             alt="Abdelrahman Emad Fathy"
-            className="w-48 h-48 rounded-full mx-auto border-4 border-primary shadow-2xl mt-2"
+            className="w-40 h-40 rounded-full mx-auto border-4 border-primary shadow-2xl mt-8"
           />
         </div>
         
