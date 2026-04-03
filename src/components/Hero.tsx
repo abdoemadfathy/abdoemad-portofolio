@@ -49,6 +49,12 @@ const Hero = () => {
               Download CV
             </a>
           </Button>
+          <Button asChild variant="outline" size="lg">
+            <a href="https://www.linkedin.com/in/abdulrahmanemadfathy" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="w-4 h-4 mr-2" />
+              LinkedIn
+            </a>
+          </Button>
         </div>
         
         <ChevronDown className="w-8 h-8 text-muted-foreground animate-bounce mx-auto" />
