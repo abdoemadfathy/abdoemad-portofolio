@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, FileDown } from "lucide-react";
 import profileImage from "@/assets/profile-image.png";
 
 const Hero = () => {
@@ -42,6 +42,12 @@ const Hero = () => {
           </Button>
           <Button onClick={scrollToContact} variant="outline" size="lg">
             Get In Touch
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <a href="/CV_Abdulrahman_Emad.pdf" target="_blank" rel="noopener noreferrer">
+              <FileDown className="w-4 h-4 mr-2" />
+              Download CV
+            </a>
           </Button>
         </div>
         
