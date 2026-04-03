@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, FileDown } from "lucide-react";
+import { ChevronDown, FileDown, Linkedin } from "lucide-react";
 import profileImage from "@/assets/profile-image.png";
 
 const Hero = () => {
@@ -47,6 +47,12 @@ const Hero = () => {
             <a href="/CV_Abdulrahman_Emad.pdf" download="CV_Abdulrahman_Emad.pdf">
               <FileDown className="w-4 h-4 mr-2" />
               Download CV
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <a href="https://www.linkedin.com/in/abdulrahmanemadfathy" target="_blank" rel="noopener noreferrer">
+              <Linkedin className="w-4 h-4 mr-2" />
+              LinkedIn
             </a>
           </Button>
         </div>
