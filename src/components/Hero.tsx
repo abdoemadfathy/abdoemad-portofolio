@@ -44,7 +44,7 @@ const Hero = () => {
             Get In Touch
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="/CV_Abdulrahman_Emad.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/CV_Abdulrahman_Emad.pdf" download="CV_Abdulrahman_Emad.pdf">
               <FileDown className="w-4 h-4 mr-2" />
               Download CV
             </a>
