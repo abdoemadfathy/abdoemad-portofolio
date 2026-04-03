@@ -66,7 +66,32 @@ const Projects = () => {
       featured: false
     },
     {
-      title: "Mini Banking System",
+      title: "Vegetables E-Commerce Platform | Manual Testing",
+      description: "Independent manual testing project for a Vegetables E-Commerce Platform, covering Web, Mobile, and Admin Panel interfaces with comprehensive test case design and defect management.",
+      period: "Mar 2025",
+      technologies: ["Manual Testing", "Jira", "Zephyr Scale", "Cross-Platform Testing", "SRS Analysis"],
+      features: [
+        "Reviewed SRS documentation to design and execute 500+ manual test cases covering Web, Mobile, and Admin Panel interfaces",
+        "Conducted functional and cross-platform testing across three application layers, ensuring consistent behavior and defect-free user flows",
+        "Documented and tracked all identified defects through full bug life-cycle management, achieving complete test coverage aligned with business requirements"
+      ],
+      skills: ["Manual Testing", "Test Case Design", "Jira", "Zephyr Scale", "Cross-Platform Testing", "Bug Life-Cycle Management"],
+      featured: true
+    },
+    {
+      title: "Social Entertainment App | Freelance Manual Testing",
+      description: "Freelance manual testing engagement for a Social Entertainment App, covering core chat features and entertainment functionalities with structured regression testing and daily bug reporting.",
+      period: "Mar 2026",
+      technologies: ["Manual Testing", "Excel", "Bug Reporting", "Regression Testing"],
+      features: [
+        "Designed and executed detailed manual test cases using Excel, covering core chat features and entertainment functionalities across multiple user scenarios",
+        "Delivered 50+ daily bug reports across all severity levels, including critical defects, ensuring full client transparency and enabling rapid resolution before release",
+        "Contributed to a significant reduction in pre-release defects through systematic test coverage and structured regression checks across all major features"
+      ],
+      skills: ["Manual Testing", "Bug Reporting", "Regression Testing", "Test Case Design", "Client Communication"],
+      featured: true
+    },
+    {
       description: "A comprehensive console-based project simulating real-world banking operations with secure account management, efficient file handling, and structured data design.",
       period: "Aug 2025",
       technologies: ["C++", "File Handling", "Data Structures"],
