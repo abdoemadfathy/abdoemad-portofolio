@@ -9,7 +9,7 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-background/80 backdrop-blur-sm border-b border-border z-50">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-bold text-primary">Abdelrahman</h1>
+          <h1 className="text-xl font-bold text-primary">Abdulrahman</h1>
           <div className="hidden md:flex space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
