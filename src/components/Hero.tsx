@@ -43,6 +43,12 @@ const Hero = () => {
           <Button onClick={scrollToContact} variant="outline" size="lg">
             Get In Touch
           </Button>
+          <Button asChild variant="outline" size="lg">
+            <a href="/CV_Abdulrahman_Emad.pdf" target="_blank" rel="noopener noreferrer">
+              <FileDown className="w-4 h-4 mr-2" />
+              Download CV
+            </a>
+          </Button>
         </div>
         
         <ChevronDown className="w-8 h-8 text-muted-foreground animate-bounce mx-auto" />
