@@ -17,13 +17,13 @@ const Hero = () => {
         <div className="mb-8">
           <img 
             src={profileImage} 
-            alt="Abdelrahman Emad Fathy"
+            alt="Abdulrahman Emad Fathy"
             className="w-48 h-48 rounded-full mx-auto border-4 border-primary shadow-2xl mt-8"
           />
         </div>
         
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
-          <span className="text-primary">Abdelrahman</span>
+          <span className="text-primary">Abdulrahman</span>
           <br />
           <span className="text-foreground">Emad Fathy</span>
         </h1>
@@ -44,7 +44,7 @@ const Hero = () => {
             Get In Touch
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="/CV_Abdulrahman_Emad.pdf" target="_blank" rel="noopener noreferrer">
+            <a href="/CV_Abdulrahman_Emad.pdf" download="CV_Abdulrahman_Emad.pdf">
               <FileDown className="w-4 h-4 mr-2" />
               Download CV
             </a>
