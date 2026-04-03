@@ -17,7 +17,7 @@ const Hero = () => {
         <div className="mb-8">
           <img 
             src={profileImage} 
-            alt="Abdelrahman Emad Fathy"
+            alt="Abdulrahman Emad Fathy"
             className="w-48 h-48 rounded-full mx-auto border-4 border-primary shadow-2xl mt-8"
           />
         </div>
