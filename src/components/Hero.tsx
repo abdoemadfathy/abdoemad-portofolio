@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, FileDown } from "lucide-react";
+import { ChevronDown, FileDown, Linkedin } from "lucide-react";
 import profileImage from "@/assets/profile-image.png";
 
 const Hero = () => {
