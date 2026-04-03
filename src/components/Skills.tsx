@@ -3,28 +3,37 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Programming Languages",
-      skills: ["C++", "Java", "Python"]
+      title: "Testing Methodologies",
+      skills: ["Manual", "Automation", "API", "Database", "Regression", "E2E", "Smoke & Sanity", "SDLC & STLC", "Bug Life-cycle Management"]
     },
     {
-      title: "Testing & QA",
-      skills: ["Manual Testing", "Automated Testing", "Test Case Design"]
+      title: "Tools & Frameworks",
+      skills: ["Selenium WebDriver", "TestNG", "Cucumber (BDD)", "Postman", "Jira", "Zephyr Scale", "SQL Server", "Maven"]
     },
     {
-      title: "Tools & Technologies",
-      skills: ["Selenium", "Postman", "Git"]
+      title: "Languages & Tech",
+      skills: ["Java", "SQL", "C++", "Python", "HTML/CSS"]
+    },
+    {
+      title: "Domains",
+      skills: ["E-commerce", "Fitness", "Web & Mobile Apps"]
+    },
+    {
+      title: "Languages",
+      skills: ["Arabic (Native)", "English (Professional Working Proficiency)"]
+    },
+    {
+      title: "Soft Skills",
+      skills: ["Attention to Detail", "Analytical Thinking", "Client Communication", "Team Collaboration", "Time Management"]
     }
   ];
 
   return (
     <section id="skills" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-8">Technical Skills</h2>
-        <p className="text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
-          Continuously expanding my expertise in programming, testing methodologies, and modern development tools.
-        </p>
+        <h2 className="text-4xl font-bold text-center mb-16">Skills</h2>
         
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
@@ -41,19 +50,6 @@ const Skills = () => {
             </Card>
           ))}
         </div>
-        
-        <Card className="max-w-4xl mx-auto">
-          <CardHeader>
-            <CardTitle className="text-xl">Continuous Learning Journey</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground leading-relaxed">
-              As a student passionate about both AI and software testing, I'm constantly expanding my skill set. 
-              Currently focusing on automated testing frameworks and deepening my understanding of quality assurance 
-              practices while building a strong foundation in programming languages essential for both domains.
-            </p>
-          </CardContent>
-        </Card>
       </div>
     </section>
   );
