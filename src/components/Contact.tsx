@@ -105,27 +105,6 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-
-                <div className="mt-6 flex justify-center">
-                  <div
-                    className="badge-base LI-profile-badge"
-                    data-locale="ar_AE"
-                    data-size="medium"
-                    data-theme="dark"
-                    data-type="HORIZONTAL"
-                    data-vanity="abdulrahmanemadfathy"
-                    data-version="v1"
-                  >
-                    <a
-                      className="badge-base__link LI-simple-link"
-                      href="https://eg.linkedin.com/in/abdulrahmanemadfathy?trk=profile-badge"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Abdulrahman Emad
-                    </a>
-                  </div>
-                </div>
               </CardContent>
             </Card>
             
