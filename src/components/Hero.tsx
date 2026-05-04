@@ -14,19 +14,38 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-secondary">
       <div className="container mx-auto px-6 text-center">
-        <div className="mb-8">
+        <div className="mb-8 flex flex-col md:flex-row items-center justify-center gap-8">
           <img 
             src={profileImage} 
             alt="Abdulrahman Emad Fathy"
-            className="w-48 h-48 rounded-full mx-auto border-4 border-primary shadow-2xl mt-8"
+            className="w-48 h-48 rounded-full border-4 border-primary shadow-2xl mt-8"
           />
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <h1 className="text-5xl md:text-7xl font-bold text-center md:text-left">
+              <span className="text-primary">Abdulrahman</span>
+              <br />
+              <span className="text-foreground">Emad Fathy</span>
+            </h1>
+            <div
+              className="badge-base LI-profile-badge"
+              data-locale="ar_AE"
+              data-size="medium"
+              data-theme="dark"
+              data-type="HORIZONTAL"
+              data-vanity="abdulrahmanemadfathy"
+              data-version="v1"
+            >
+              <a
+                className="badge-base__link LI-simple-link"
+                href="https://eg.linkedin.com/in/abdulrahmanemadfathy?trk=profile-badge"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Abdulrahman Emad
+              </a>
+            </div>
+          </div>
         </div>
-        
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">
-          <span className="text-primary">Abdulrahman</span>
-          <br />
-          <span className="text-foreground">Emad Fathy</span>
-        </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-4">
           Delivering Excellence in Software Quality Assurance
