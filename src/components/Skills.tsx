@@ -8,7 +8,7 @@ const Skills = () => {
     },
     {
       title: "Tools & Frameworks",
-      skills: ["Selenium WebDriver", "TestNG", "Cucumber (BDD)", "Postman", "Jira", "Zephyr Scale", "SQL Server", "Maven"]
+      skills: ["Selenium WebDriver", "TestNG", "Cucumber (BDD)", "Postman", "RestAssured", "Jira", "Zephyr Scale", "SQL Server", "Git / GitHub", "Maven"]
     },
     {
       title: "Languages & Tech",
