@@ -12,7 +12,7 @@ const Experience = () => {
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-start justify-between mb-6">
                 <div>
-                  <h3 className="text-2xl font-bold mb-2">Software Quality Assurance Tester (Internship)</h3>
+                  <h3 className="text-2xl font-bold mb-2">Software Quality Assurance Engineer (Internship)</h3>
                   <p className="text-xl text-primary font-semibold">Digital Egypt Pioneers Initiative (DEPI)</p>
                 </div>
                 <div className="text-right mt-4 md:mt-0">
@@ -31,39 +31,27 @@ const Experience = () => {
               <ul className="space-y-3 text-muted-foreground">
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                  Joined the DEPI training program as a Software Quality Assurance trainee and built a strong foundation in software testing principles and best practices
+                  Designed, reviewed, and executed end-to-end Test Cases and Test Suites based on ISTQB standards and SDLC/STLC best practices
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                  Studied and applied Java programming in various testing scenarios during the early phase of the program
+                  Developed functional test scripts using Java, Selenium WebDriver, and TestNG for automated web testing
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                  Gained structured knowledge of software testing fundamentals based on ISTQB concepts and methodologies
+                  Performed comprehensive API Testing using Postman (validating HTTP status codes, JSON response payloads, and environment variables)
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                  <div>
-                    <span>Acquired hands-on experience in multiple testing areas:</span>
-                    <ul className="mt-2 ml-4 space-y-1">
-                      <li>• <strong>Manual Testing:</strong> Designing and executing test cases and reporting defects</li>
-                      <li>• <strong>Database Testing:</strong> Writing SQL queries, verifying data integrity, and validating backend processes</li>
-                      <li>• <strong>API Testing:</strong> Testing endpoints, validating responses, and ensuring proper service integration</li>
-                      <li>• <strong>Automation Testing:</strong> Learning the fundamentals of test automation scripts and frameworks</li>
-                    </ul>
-                  </div>
+                  Executed Database Testing by writing SQL queries to verify backend data integrity and transaction logs
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                  Applied these skills in real-world, hands-on projects, including a final QA graduation project that covered end-to-end testing scenarios
+                  Reported and tracked software defects in Jira & Zephyr Scale with clear reproduction steps, severity levels, and execution logs
                 </li>
                 <li className="flex items-start">
                   <span className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                  Gained exposure to real software testing workflows and challenges through practical assignments and team collaboration
-                </li>
-                <li className="flex items-start">
-                  <span className="w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                  Completed freelance-like practical tasks during the program, earning income in USD and gaining real industry-oriented experience
+                  Participated in cross-functional team projects to deliver fully tested, production-ready QA graduation deliverables
                 </li>
               </ul>
             </CardContent>

@@ -91,48 +91,6 @@ const Projects = () => {
       skills: ["Manual Testing", "Bug Reporting", "Regression Testing", "Test Case Design", "Client Communication"],
       featured: true
     },
-    {
-      description: "A comprehensive console-based project simulating real-world banking operations with secure account management, efficient file handling, and structured data design.",
-      period: "Aug 2025",
-      technologies: ["C++", "File Handling", "Data Structures"],
-      features: [
-        "📋 Client Management: Add, update, delete, search",
-        "💰 Transactions: Deposit, withdraw, balance calculation",
-        "📂 File Handling: Store/retrieve client data",
-        "🔎 Data Presentation: Clean formatted tables using iomanip"
-      ],
-      skills: ["C++ (Functions, Structs, Enums, Vectors)", "File Handling (read/write/append)"],
-      github: "https://github.com/abdoemadfathy/Mini-Banking-System",
-      featured: true
-    },
-    {
-      title: "Math Quiz Game",
-      description: "Interactive console-based quiz application with multiple difficulty levels, dynamic question generation, instant feedback, and comprehensive score tracking.",
-      period: "Jul 2025",
-      technologies: ["C++", "Algorithm Design", "User Interface"],
-      features: [
-        "🎯 Multiple difficulty levels (Easy, Medium, Hard)",
-        "🔄 Dynamic question generation",
-        "⚡ Instant feedback system",
-        "📊 Score tracking and statistics"
-      ],
-      skills: ["C++ Programming", "Logic Design", "User Experience"],
-      github: "https://github.com/abdoemadfathy/C-_Math_Quiz_Game"
-    },
-    {
-      title: "Rock-Paper-Scissors Game",
-      description: "Multi-round console game featuring input validation, random computer choices, color-coded results, and well-structured game logic.",
-      period: "Jun 2025",
-      technologies: ["C++", "Game Logic", "Random Generation"],
-      features: [
-        "🎮 Multi-round gameplay",
-        "✅ Input validation system",
-        "🤖 Smart computer opponent",
-        "🎨 Color-coded result display"
-      ],
-      skills: ["C++ Fundamentals", "Game Development", "Algorithm Implementation"],
-      github: "https://github.com/abdoemadfathy/Rock--Paper-Scissors"
-    }
   ];
 
   return (
@@ -141,7 +99,7 @@ const Projects = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">My Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my programming journey, demonstrating skills in C++ development, problem-solving, and software design principles.
+            A showcase of my Software Quality Assurance work, demonstrating skills in manual testing, test automation, API testing, and defect management.
           </p>
         </div>
         
