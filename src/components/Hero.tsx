@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ChevronDown, FileDown, Linkedin } from "lucide-react";
-import profileImage from "@/assets/profile-image.png";
+import { ChevronDown, FileDown, Linkedin, Github, Mail } from "lucide-react";
+import profileImage from "@/assets/profile-image.jpg.asset.json";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -11,12 +11,30 @@ const Hero = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const socialLinks = [
+    {
+      href: "https://www.linkedin.com/in/abdulrahmanemadfathy",
+      label: "LinkedIn",
+      icon: Linkedin
+    },
+    {
+      href: "https://github.com/abdoemadfathy",
+      label: "GitHub",
+      icon: Github
+    },
+    {
+      href: "mailto:abdelrahman.emad@example.com",
+      label: "Email",
+      icon: Mail
+    }
+  ];
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-secondary">
       <div className="container mx-auto px-6 text-center">
         <div className="mb-8">
           <img 
-            src={profileImage} 
+            src={profileImage.url} 
             alt="Abdulrahman Emad Fathy"
             className="w-48 h-48 rounded-full mx-auto border-4 border-primary shadow-2xl mt-8"
           />
@@ -29,32 +47,35 @@ const Hero = () => {
         </h1>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-          Delivering Excellence in Software Quality Assurance
+          Software Quality Assurance Engineer specializing in Manual & Automated Testing, API Validation, and End-to-End Web & Mobile Quality Assurance.
         </p>
         
-        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Computer Science student specializing in Artificial Intelligence, building expertise in software testing and quality assurance.
-        </p>
-        
-        <div className="flex gap-4 justify-center mb-12">
+        <div className="flex gap-4 justify-center mb-8">
           <Button onClick={scrollToProjects} size="lg" className="bg-primary hover:bg-primary/90">
             View My Work
           </Button>
-          <Button onClick={scrollToContact} variant="outline" size="lg">
-            Get In Touch
-          </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="/CV_Abdulrahman_Emad.pdf" download="CV_Abdulrahman_Emad.pdf">
+            <a href="/CV_Abdulrahman_Emad.pdf" download="Abdulrahman_Emad_CV.pdf">
               <FileDown className="w-4 h-4 mr-2" />
               Download CV
             </a>
           </Button>
-          <Button asChild variant="outline" size="lg">
-            <a href="https://www.linkedin.com/in/abdulrahmanemadfathy" target="_blank" rel="noopener noreferrer">
-              <Linkedin className="w-4 h-4 mr-2" />
-              LinkedIn
+        </div>
+        
+        <div className="flex gap-4 justify-center mb-12">
+          {socialLinks.map(({ href, label, icon: Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_top"
+              rel="noopener noreferrer"
+              aria-label={label}
+              title={label}
+              className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/10 transition-colors"
+            >
+              <Icon className="w-5 h-5" />
             </a>
-          </Button>
+          ))}
         </div>
         
         <ChevronDown className="w-8 h-8 text-muted-foreground animate-bounce mx-auto" />
