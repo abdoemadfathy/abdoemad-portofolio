@@ -9,27 +9,22 @@ const About = () => {
         
         <div className="max-w-4xl mx-auto">
           <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-            I am a QA Tester focused on delivering reliable and bug-free digital products.
-            My mission is to ensure that websites and applications are functional, user-friendly, and secure before reaching users.
+            I am a Detail-Oriented Software Quality Assurance Engineer dedicated to delivering reliable, scalable, and bug-free digital products. My core focus is bridging the gap between business requirements and technical execution by ensuring every application is fully functional, user-friendly, and secure before reaching production.
           </p>
           
           <div className="text-lg text-muted-foreground mb-6 leading-relaxed">
-            <p className="mb-4">I provide:</p>
+            <p className="mb-4">Core Value I Provide:</p>
             <ul className="space-y-2 ml-6">
-              <li>• Comprehensive test case design and execution</li>
-              <li>• Detailed bug reports with reproduction steps, severity levels, and screenshots</li>
-              <li>• Cross-browser and device testing (Chrome, Firefox, Safari, Android, iOS)</li>
-              <li>• UI/UX reviews to uncover inconsistencies and improve user experience</li>
-              <li>• Support with basic automation tools (Selenium, Postman, OWASP ZAP)</li>
+              <li>• <strong>End-to-End Test Case Design & Execution:</strong> Comprehensive coverage across all SDLC / STLC phases.</li>
+              <li>• <strong>Detailed Bug Reporting:</strong> Clear reproduction steps, severity ranking, logs, and screenshots for swift resolution.</li>
+              <li>• <strong>Cross-Browser & Multi-Device Testing:</strong> Flawless behavior on Chrome, Firefox, Safari, Android, and iOS.</li>
+              <li>• <strong>API & Automated Testing:</strong> Robust test automation using Selenium WebDriver, Postman, TestNG, and Cucumber BDD.</li>
+              <li>• <strong>UI/UX Consistency Reviews:</strong> Elevating overall user experience through functional and non-functional validation.</li>
             </ul>
           </div>
           
           <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-            My approach is built on precision and actionable results — helping development teams fix issues faster and launch stable products with confidence.
-          </p>
-          
-          <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-            If you're looking for a QA partner who saves you time, money, and protects your product's reputation, feel free to check my work and connect with me.
+            My approach is built on precision, automation efficiency, and actionable metrics—helping engineering teams fix critical issues faster and launch stable releases with total confidence.
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
