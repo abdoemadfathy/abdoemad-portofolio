@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, FileDown, Linkedin, Github, Mail } from "lucide-react";
-import profileImage from "@/assets/profile-image.jpg.asset.json";
+import profileImage from "@/assets/profile-image.jpg";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 text-center">
         <div className="mb-8">
           <img 
-            src={profileImage.url} 
+            src={profileImage} 
             alt="Abdulrahman Emad Fathy"
             className="w-48 h-48 rounded-full mx-auto border-4 border-primary shadow-2xl mt-8"
           />
