@@ -19,6 +19,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Contact />
+      <PortfolioAssistant />
     </div>
   );
 };
