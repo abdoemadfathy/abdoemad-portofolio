@@ -50,10 +50,10 @@ const Hero = () => {
             </p>
 
             <div className="flex flex-wrap gap-4 justify-center md:justify-start mb-8">
-              <Button onClick={scrollToProjects} size="lg" className="bg-primary hover:bg-primary/90">
+              <Button onClick={scrollToProjects} size="lg" className="bg-primary hover:bg-primary/90 hover-pop">
                 View My Work
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="hover-pop">>
                 <a href="/CV_Abdulrahman_Emad.pdf" download="Abdulrahman_Emad_CV.pdf">
                   <FileDown className="w-4 h-4 mr-2" />
                   Download CV
