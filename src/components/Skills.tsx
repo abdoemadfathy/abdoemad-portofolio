@@ -64,10 +64,12 @@ const Skills = () => {
                 <h3 className="text-lg font-semibold">{title}</h3>
               </div>
               <div className="flex flex-wrap gap-3">
-                {skills.map((skill) => (
+                {skills.map((skill, i) => (
                   <span
                     key={skill}
-                    className="px-4 py-1.5 rounded-full bg-secondary/50 border border-border text-sm font-medium hover:border-primary hover:text-primary transition-colors cursor-default"
+                    data-reveal
+                    style={{ transitionDelay: `${i * 40}ms` }}
+                    className="px-4 py-1.5 rounded-full bg-secondary/50 border border-border text-sm font-medium hover:border-primary hover:text-primary hover:bg-primary/10 hover-pop cursor-default"
                   >
                     {skill}
                   </span>

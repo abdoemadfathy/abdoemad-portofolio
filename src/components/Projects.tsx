@@ -105,9 +105,12 @@ const Projects = () => {
         
         <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
-            <Card key={index} className={`hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
-              project.featured ? 'ring-2 ring-primary/50' : ''
-            }`}>
+            <Card
+              key={index}
+              data-reveal
+              style={{ transitionDelay: `${(index % 2) * 90}ms` }}
+              className={`hover-glow ${project.featured ? 'ring-2 ring-primary/50' : ''}`}
+            >
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">

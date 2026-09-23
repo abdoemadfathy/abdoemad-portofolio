@@ -7,8 +7,11 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import PortfolioAssistant from "@/components/PortfolioAssistant";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const Index = () => {
+  useScrollReveal();
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
