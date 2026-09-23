@@ -53,7 +53,7 @@ const Hero = () => {
               <Button onClick={scrollToProjects} size="lg" className="bg-primary hover:bg-primary/90 hover-pop">
                 View My Work
               </Button>
-              <Button asChild variant="outline" size="lg" className="hover-pop">>
+              <Button asChild variant="outline" size="lg" className="hover-pop">
                 <a href="/CV_Abdulrahman_Emad.pdf" download="Abdulrahman_Emad_CV.pdf">
                   <FileDown className="w-4 h-4 mr-2" />
                   Download CV
@@ -70,7 +70,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   aria-label={label}
                   title={label}
-                  className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/10 transition-colors"
+                  className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/10 hover-pop"
                 >
                   <Icon className="w-5 h-5" />
                 </a>
