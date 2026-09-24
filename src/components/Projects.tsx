@@ -1,7 +1,15 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Star } from "lucide-react";
+import { ExternalLink, Github, Star, ShoppingCart, Send, Landmark, Smartphone, ClipboardCheck, CheckCircle2 } from "lucide-react";
+
+const getDomain = (title: string) => {
+  const t = title.toLowerCase();
+  if (t.includes("api")) return { label: "API Testing", icon: Send };
+  if (t.includes("bank")) return { label: "Banking QA", icon: Landmark };
+  if (t.includes("social") || t.includes("app")) return { label: "Mobile App QA", icon: Smartphone };
+  if (t.includes("commerce") || t.includes("swag")) return { label: "E-Commerce QA", icon: ShoppingCart };
+  return { label: "Manual QA", icon: ClipboardCheck };
+};
 
 const Projects = () => {
   const projects = [
@@ -103,68 +111,82 @@ const Projects = () => {
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              data-reveal
-              style={{ transitionDelay: `${(index % 2) * 90}ms` }}
-              className={`hover-glow ${project.featured ? 'ring-2 ring-primary/50' : ''}`}
-            >
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <CardTitle className="text-xl">{project.title}</CardTitle>
-                      {project.featured && <Star className="w-5 h-5 text-primary fill-current" />}
-                    </div>
-                    <p className="text-sm text-muted-foreground">{project.period}</p>
+        <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          {projects.map((project, index) => {
+            const d = getDomain(project.title);
+            const DomainIcon = d.icon;
+            const isApi = d.label === "API Testing";
+            return (
+              <article
+                key={index}
+                data-reveal
+                style={{ transitionDelay: `${(index % 2) * 90}ms` }}
+                className="hover-glow group flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
+              >
+                {/* Visual header banner */}
+                <div className="relative h-32 overflow-hidden border-b border-border bg-[linear-gradient(135deg,hsl(var(--indigo)/0.35),hsl(var(--primary)/0.15)_55%,hsl(var(--card)))]">
+                  <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(hsl(var(--foreground)/0.25)_1px,transparent_1px)] [background-size:16px_16px]" />
+                  <DomainIcon className="absolute -right-4 -bottom-6 h-32 w-32 text-foreground/10 transition-transform duration-500 group-hover:scale-110" />
+                  <div className="relative flex h-full items-end justify-between p-5">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium backdrop-blur">
+                      <DomainIcon className="h-3.5 w-3.5 text-primary" />
+                      {d.label}
+                    </span>
+                    <span className="flex items-center gap-2 text-xs text-muted-foreground">
+                      {project.featured && <Star className="h-3.5 w-3.5 fill-current text-primary" />}
+                      {project.period}
+                    </span>
                   </div>
                 </div>
-                <p className="text-muted-foreground">{project.description}</p>
-              </CardHeader>
-              
-              <CardContent className="space-y-6">
-                <div>
-                  <h4 className="font-semibold mb-2">Technologies Used:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, i) => (
-                      <Badge key={i} variant="secondary">{tech}</Badge>
-                    ))}
+
+                <div className="flex flex-1 flex-col gap-5 p-6">
+                  <div>
+                    <h3 className="mb-2 text-xl font-semibold leading-snug text-foreground">{project.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
                   </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-2">Key Features:</h4>
-                  <ul className="space-y-1">
+
+                  <ul className="space-y-2">
                     {project.features.map((feature, i) => (
-                      <li key={i} className="text-sm text-muted-foreground">
-                        {feature}
+                      <li key={i} className="flex gap-2 text-sm text-muted-foreground">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-2">Skills Developed:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.skills.map((skill, i) => (
-                      <Badge key={i} variant="outline" className="text-xs">{skill}</Badge>
-                    ))}
+
+                  <div>
+                    <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.technologies.map((tech, i) => (
+                        <span key={i} className="rounded-full border border-[hsl(var(--tag-tech)/0.3)] bg-[hsl(var(--tag-tech)/0.12)] px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--tag-tech))]">{tech}</span>
+                      ))}
+                    </div>
                   </div>
+
+                  <div>
+                    <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Skills Developed</h4>
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.skills.map((skill, i) => (
+                        <span key={i} className="rounded-full border border-[hsl(var(--tag-skill)/0.3)] bg-[hsl(var(--tag-skill)/0.12)] px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--tag-skill))]">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {project.github && (
+                    <div className="mt-auto pt-2">
+                      <Button asChild className="w-full hover-pop">
+                        <a href={project.github} target="_top" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
+                          {isApi ? <Send className="h-4 w-4" /> : <Github className="h-4 w-4" />}
+                          {isApi ? "View Test Suite" : "View Code"}
+                          <ExternalLink className="h-3.5 w-3.5 opacity-70" />
+                        </a>
+                      </Button>
+                    </div>
+                  )}
                 </div>
-                
-                <div className="flex gap-2 pt-4">
-                  <Button asChild size="sm">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4 mr-2" />
-                      View Code
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+              </article>
+            );
+          })}
         </div>
         
         <div className="text-center mt-16">

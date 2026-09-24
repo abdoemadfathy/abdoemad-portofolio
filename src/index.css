@@ -2,48 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Portfolio Design System - Ultra-Clean Light */
+/* Portfolio Design System - Rich Slate Soft Dark */
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 222 47% 11%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 210 40% 98%;
-    --card-foreground: 222 47% 11%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 221 83% 53%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 214 100% 97%;
-    --secondary-foreground: 221 83% 45%;
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 19% 35%;
+    --muted: 217 33% 20%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 221 83% 53%;
+    --accent: 217 91% 60%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 221 83% 53%;
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
+    /* Tag colors */
+    --tag-tech: 217 91% 60%;
+    --tag-skill: 160 70% 45%;
+    --indigo: 239 84% 67%;
+
     /* Portfolio specific tokens */
-    --hero-bg: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(214 100% 97%) 100%);
-    --card-hover: 210 40% 96%;
-    --text-highlight: 221 83% 53%;
-    --skill-bg: 214 100% 97%;
-    --project-featured: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(224 76% 48%) 100%);
-    --glow-primary: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 20px -8px rgba(15, 23, 42, 0.08);
-    --shadow-elegant: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    --hero-bg: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(217 33% 17%) 100%);
+    --card-hover: 217 33% 21%;
+    --text-highlight: 217 91% 70%;
+    --skill-bg: 217 33% 20%;
+    --project-featured: linear-gradient(135deg, hsl(239 84% 67%) 0%, hsl(217 91% 60%) 100%);
+    --glow-primary: 0 0 0 1px hsl(var(--indigo) / 0.45), 0 14px 32px -14px hsl(var(--indigo) / 0.55);
+    --shadow-elegant: 0 18px 40px -20px hsl(222 60% 4% / 0.8);
   }
 }
 
@@ -88,7 +93,7 @@
   .hover-glow:hover {
     transform: translateY(-4px);
     box-shadow: var(--glow-primary);
-    border-color: hsl(var(--primary) / 0.3);
+    border-color: hsl(var(--indigo) / 0.6);
   }
 
   .hover-pop {
