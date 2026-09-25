@@ -1,186 +1,179 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Star, ShoppingCart, Send, Landmark, Smartphone, ClipboardCheck, CheckCircle2 } from "lucide-react";
+import { ExternalLink, Github, ShoppingCart, Send, Landmark, Smartphone, Leaf, CheckCircle2 } from "lucide-react";
+import SectionHeading from "./SectionHeading";
+import type { LucideIcon } from "lucide-react";
 
-const getDomain = (title: string) => {
-  const t = title.toLowerCase();
-  if (t.includes("api")) return { label: "API Testing", icon: Send };
-  if (t.includes("bank")) return { label: "Banking QA", icon: Landmark };
-  if (t.includes("social") || t.includes("app")) return { label: "Mobile App QA", icon: Smartphone };
-  if (t.includes("commerce") || t.includes("swag")) return { label: "E-Commerce QA", icon: ShoppingCart };
-  return { label: "Manual QA", icon: ClipboardCheck };
+type Project = {
+  title: string;
+  domain: string;
+  icon: LucideIcon;
+  period: string;
+  description: string;
+  technologies: string[];
+  scope: string[];
+  github?: string;
+  demo?: string;
+  suiteLabel?: string;
 };
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "E-Commerce QA Graduation Project – OpenCart",
-      description: "Software Quality Assurance graduation project for an e-commerce platform (OpenCart), covering the full QA lifecycle with manual and automated testing.",
-      period: "2025",
-      technologies: ["Manual Testing", "Selenium WebDriver", "Cucumber (BDD)", "Postman", "SQL", "JIRA"],
-      features: [
-        "Performed manual functional and non-functional testing",
-        "Automated critical user journeys using Selenium WebDriver with Cucumber (BDD)",
-        "Conducted API testing using Postman and validated backend data using SQL",
-        "Prepared complete test documentation and managed defect tracking using JIRA"
-      ],
-      skills: ["Full QA Lifecycle", "Test Automation", "API Testing", "Defect Management", "Test Documentation"],
-      github: "https://github.com/abdoemadfathy/GraduationProject_DEPI_SoftwareTesting",
-      featured: true
-    },
-    {
-      title: "API Testing Project – Restful Booker Automation",
-      description: "API testing project on the Restful Booker API covering authentication, CRUD operations, negative testing, and automation with professional reporting.",
-      period: "2025",
-      technologies: ["Postman", "API Testing", "Manual Testing", "Java", "Newman"],
-      features: [
-        "Designed and executed requests covering authentication and CRUD operations",
-        "Implemented Postman test scripts to validate status codes and response data",
-        "Used global and environment variables for dynamic data management",
-        "Automated workflows using Pre-request Scripts and Collection Runner/Newman"
-      ],
-      skills: ["API Testing", "Test Automation", "Postman Scripting", "Newman", "Test Reporting"],
-      github: "https://github.com/abdoemadfathy/API-Testing-Project-using-Postman-Restful-Booker-Automation",
-      featured: true
-    },
-    {
-      title: "Manual Testing Project – Swag Labs",
-      description: "Manual testing project on the Swag Labs demo website covering Login, Add to Cart, Checkout, and Sorting functionalities with detailed test cases and bug reports.",
-      period: "2025",
-      technologies: ["Manual Testing", "Test Cases", "Bug Reporting", "Test Planning", "UAT"],
-      features: [
-        "Designed and executed detailed test cases with preconditions and expected/actual results",
-        "Tested multiple functionalities: Login, Add to Cart, Checkout, and Sorting",
-        "Identified critical defects using different user roles",
-        "Documented professional bug reports with severity, priority, and reproduction steps"
-      ],
-      skills: ["Manual Testing", "Test Case Design", "Bug Reporting", "UAT", "Defect Documentation"],
-      github: "https://github.com/abdoemadfathy/Manual-Testing-Project---Swag-Labs-Test-Cases-Bug-Reports-",
-      featured: true
-    },
-    {
-      title: "Guru99 Bank Testing Project",
-      description: "End-to-end manual testing project for Guru99 Bank application, covering different modules and flows.",
-      period: "Sep 2025",
-      technologies: ["Test Case Design", "Manual Testing", "Bug Reporting", "Regression Testing", "Documentation"],
-      features: [
-        "Designed test cases covering all modules",
-        "Executed comprehensive testing flows", 
-        "Prepared detailed bug reports",
-        "Performed regression testing"
-      ],
-      skills: ["Test Case Design", "Manual Testing", "Bug Reporting", "Regression Testing", "Documentation"],
-      github: "https://github.com/abdoemadfathy/Testing-Portfolio",
-      featured: false
-    },
-    {
-      title: "Vegetables E-Commerce Platform | Manual Testing",
-      description: "Independent manual testing project for a Vegetables E-Commerce Platform, covering Web, Mobile, and Admin Panel interfaces with comprehensive test case design and defect management.",
-      period: "Mar 2025",
-      technologies: ["Manual Testing", "Jira", "Zephyr Scale", "Cross-Platform Testing", "SRS Analysis"],
-      features: [
-        "Reviewed SRS documentation to design and execute 500+ manual test cases covering Web, Mobile, and Admin Panel interfaces",
-        "Conducted functional and cross-platform testing across three application layers, ensuring consistent behavior and defect-free user flows",
-        "Documented and tracked all identified defects through full bug life-cycle management, achieving complete test coverage aligned with business requirements"
-      ],
-      skills: ["Manual Testing", "Test Case Design", "Jira", "Zephyr Scale", "Cross-Platform Testing", "Bug Life-Cycle Management"],
-      featured: true
-    },
-    {
-      title: "Social Entertainment App | Freelance Manual Testing",
-      description: "Freelance manual testing engagement for a Social Entertainment App, covering core chat features and entertainment functionalities with structured regression testing and daily bug reporting.",
-      period: "Mar 2026",
-      technologies: ["Manual Testing", "Excel", "Bug Reporting", "Regression Testing"],
-      features: [
-        "Designed and executed detailed manual test cases using Excel, covering core chat features and entertainment functionalities across multiple user scenarios",
-        "Delivered 50+ daily bug reports across all severity levels, including critical defects, ensuring full client transparency and enabling rapid resolution before release",
-        "Contributed to a significant reduction in pre-release defects through systematic test coverage and structured regression checks across all major features"
-      ],
-      skills: ["Manual Testing", "Bug Reporting", "Regression Testing", "Test Case Design", "Client Communication"],
-      featured: true
-    },
-  ];
+const projects: Project[] = [
+  {
+    title: "OpenCart QA Graduation Project",
+    domain: "E-Commerce QA",
+    icon: ShoppingCart,
+    period: "2025",
+    description: "Full QA lifecycle for the OpenCart e-commerce platform, combining manual, automated, API and database testing.",
+    technologies: ["Manual Testing", "Automation Testing", "Selenium", "Cucumber", "Postman", "SQL"],
+    scope: [
+      "Functional & non-functional manual testing",
+      "Automated critical journeys with Selenium + Cucumber (BDD)",
+      "API testing in Postman and SQL backend validation",
+      "Test documentation and defect tracking in Jira",
+    ],
+    github: "https://github.com/abdoemadfathy/GraduationProject_DEPI_SoftwareTesting",
+  },
+  {
+    title: "Swag Labs E-Commerce Automation",
+    domain: "Web Automation",
+    icon: ShoppingCart,
+    period: "2025",
+    description: "Test suite for the Swag Labs demo store covering login, cart, checkout and sorting flows with structured test cases and bug reports.",
+    technologies: ["Java", "Selenium WebDriver", "Maven", "TestNG", "Page Object Model"],
+    scope: [
+      "Login, Add to Cart, Checkout and Sorting flows",
+      "Role-based testing to surface critical defects",
+      "Bug reports with severity, priority and repro steps",
+    ],
+    github: "https://github.com/abdoemadfathy/Manual-Testing-Project---Swag-Labs-Test-Cases-Bug-Reports-",
+  },
+  {
+    title: "RESTful Booker API Testing",
+    domain: "API Testing",
+    icon: Send,
+    period: "2025",
+    description: "API test collection for Restful Booker covering authentication, CRUD operations, negative cases and automated runs.",
+    technologies: ["Postman", "REST API", "Functional Testing", "API Validation", "Newman"],
+    scope: [
+      "Auth and full CRUD request coverage",
+      "Status code and response payload assertions",
+      "Environment variables and pre-request scripts",
+      "Collection Runner / Newman automation",
+    ],
+    github: "https://github.com/abdoemadfathy/API-Testing-Project-using-Postman-Restful-Booker-Automation",
+    suiteLabel: "View Test Suite",
+  },
+  {
+    title: "Guru99 Bank Testing Project",
+    domain: "Banking QA",
+    icon: Landmark,
+    period: "Sep 2025",
+    description: "End-to-end manual testing for the Guru99 Bank application across its modules and flows.",
+    technologies: ["Test Case Design", "Manual Testing", "Bug Reporting", "Regression Testing"],
+    scope: ["Test cases for all modules", "End-to-end flow execution", "Detailed bug reports and regression runs"],
+    github: "https://github.com/abdoemadfathy/Testing-Portfolio",
+  },
+  {
+    title: "Vegetables E-Commerce Platform",
+    domain: "Cross-Platform QA",
+    icon: Leaf,
+    period: "Mar 2025",
+    description: "Independent manual testing across Web, Mobile and Admin Panel with SRS-driven test design and full defect lifecycle.",
+    technologies: ["Manual Testing", "Jira", "Zephyr Scale", "SRS Analysis"],
+    scope: ["500+ test cases from SRS review", "Functional testing across three app layers", "Full bug life-cycle tracking"],
+  },
+  {
+    title: "Social Entertainment App",
+    domain: "Mobile App QA · Freelance",
+    icon: Smartphone,
+    period: "Mar 2026",
+    description: "One-month freelance engagement testing chat and entertainment features with daily reporting and regression checks.",
+    technologies: ["Manual Testing", "Excel", "Bug Reporting", "Regression Testing"],
+    scope: ["Test cases for core chat features", "50+ daily bug reports across severities", "Structured pre-release regression"],
+  },
+];
 
-  return (
-    <section id="projects" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">My Projects</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my Software Quality Assurance work, demonstrating skills in manual testing, test automation, API testing, and defect management.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => {
-            const d = getDomain(project.title);
-            const DomainIcon = d.icon;
-            const isApi = d.label === "API Testing";
+const Projects = () => (
+  <section id="projects" className="relative py-28">
+    <div className="container mx-auto px-6">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading
+          eyebrow="Projects"
+          title="Selected QA work."
+          description="Real testing projects across e-commerce, APIs, banking and mobile — each with scope, tools and source."
+        />
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {projects.map((p, i) => {
+            const Icon = p.icon;
             return (
               <article
-                key={index}
+                key={p.title}
                 data-reveal
-                style={{ transitionDelay: `${(index % 2) * 90}ms` }}
-                className="hover-glow group flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
+                data-cursor="hover"
+                style={{ transitionDelay: `${(i % 2) * 90}ms` }}
+                className="hover-glow group flex flex-col overflow-hidden rounded-[1.25rem] border border-border bg-card"
               >
-                {/* Visual header banner */}
-                <div className="relative h-32 overflow-hidden border-b border-border bg-[linear-gradient(135deg,hsl(var(--indigo)/0.35),hsl(var(--primary)/0.15)_55%,hsl(var(--card)))]">
-                  <div className="absolute inset-0 opacity-30 [background-image:radial-gradient(hsl(var(--foreground)/0.25)_1px,transparent_1px)] [background-size:16px_16px]" />
-                  <DomainIcon className="absolute -right-4 -bottom-6 h-32 w-32 text-foreground/10 transition-transform duration-500 group-hover:scale-110" />
+                <div className="relative h-40 overflow-hidden border-b border-border">
+                  <div className="absolute inset-0 transition-transform duration-500 ease-out group-hover:scale-[1.04] bg-[radial-gradient(circle_at_15%_20%,hsl(var(--primary)/0.4),transparent_55%),radial-gradient(circle_at_85%_80%,hsl(var(--cyan)/0.18),transparent_55%),radial-gradient(circle_at_60%_10%,hsl(var(--purple)/0.15),transparent_50%)]">
+                    <div className="grid-texture" />
+                    <Icon className="absolute right-6 top-1/2 h-20 w-20 -translate-y-1/2 text-foreground/15" strokeWidth={1.25} />
+                  </div>
                   <div className="relative flex h-full items-end justify-between p-5">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium backdrop-blur">
-                      <DomainIcon className="h-3.5 w-3.5 text-primary" />
-                      {d.label}
+                    <span className="glass inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium">
+                      <Icon className="h-3.5 w-3.5 text-primary" />
+                      {p.domain}
                     </span>
-                    <span className="flex items-center gap-2 text-xs text-muted-foreground">
-                      {project.featured && <Star className="h-3.5 w-3.5 fill-current text-primary" />}
-                      {project.period}
-                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">{p.period}</span>
                   </div>
                 </div>
 
                 <div className="flex flex-1 flex-col gap-5 p-6">
                   <div>
-                    <h3 className="mb-2 text-xl font-semibold leading-snug text-foreground">{project.title}</h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
-                  </div>
-
-                  <ul className="space-y-2">
-                    {project.features.map((feature, i) => (
-                      <li key={i} className="flex gap-2 text-sm text-muted-foreground">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div>
-                    <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.technologies.map((tech, i) => (
-                        <span key={i} className="rounded-full border border-[hsl(var(--tag-tech)/0.3)] bg-[hsl(var(--tag-tech)/0.12)] px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--tag-tech))]">{tech}</span>
-                      ))}
-                    </div>
+                    <h3 className="text-xl font-semibold">{p.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
                   </div>
 
                   <div>
-                    <h4 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Skills Developed</h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.skills.map((skill, i) => (
-                        <span key={i} className="rounded-full border border-[hsl(var(--tag-skill)/0.3)] bg-[hsl(var(--tag-skill)/0.12)] px-2.5 py-0.5 text-xs font-medium text-[hsl(var(--tag-skill))]">{skill}</span>
+                    <h4 className="mb-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Testing scope</h4>
+                    <ul className="space-y-1.5">
+                      {p.scope.map((s) => (
+                        <li key={s} className="flex gap-2 text-sm text-muted-foreground">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          {s}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
 
-                  {project.github && (
-                    <div className="mt-auto pt-2">
-                      <Button asChild className="w-full hover-pop">
-                        <a href={project.github} target="_top" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2">
-                          {isApi ? <Send className="h-4 w-4" /> : <Github className="h-4 w-4" />}
-                          {isApi ? "View Test Suite" : "View Code"}
-                          <ExternalLink className="h-3.5 w-3.5 opacity-70" />
-                        </a>
-                      </Button>
+                  <div>
+                    <h4 className="mb-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground">Technologies</h4>
+                    <ul className="flex flex-wrap gap-1.5">
+                      {p.technologies.map((t) => (
+                        <li key={t} className="rounded-md border border-primary/25 bg-primary/10 px-2 py-0.5 text-xs font-medium text-[hsl(var(--tag-tech))]">
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {(p.github || p.demo) && (
+                    <div className="mt-auto flex gap-2 pt-2">
+                      {p.github && (
+                        <Button asChild className="flex-1 rounded-xl transition-all group-hover:shadow-[0_10px_24px_-12px_hsl(var(--primary)/0.8)]">
+                          <a href={p.github} target="_top" rel="noopener noreferrer">
+                            {p.suiteLabel ? <Send className="h-4 w-4" /> : <Github className="h-4 w-4" />}
+                            {p.suiteLabel ?? "GitHub"}
+                          </a>
+                        </Button>
+                      )}
+                      {p.demo && (
+                        <Button asChild variant="outline" className="flex-1 rounded-xl">
+                          <a href={p.demo} target="_top" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4" />
+                            Live Demo
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   )}
                 </div>
@@ -188,21 +181,9 @@ const Projects = () => {
             );
           })}
         </div>
-        
-        <div className="text-center mt-16">
-          <Card className="max-w-2xl mx-auto">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4">More Projects Coming Soon</h3>
-              <p className="text-muted-foreground">
-                I'm constantly working on new projects to expand my skills in software testing, automation, and AI development. 
-                Stay tuned for updates!
-              </p>
-            </CardContent>
-          </Card>
-        </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Projects;
