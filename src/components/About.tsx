@@ -1,78 +1,75 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap, Brain, TestTube, BookOpen } from "lucide-react";
+import { GraduationCap, Briefcase, Award, CheckCircle2 } from "lucide-react";
+import SectionHeading from "./SectionHeading";
 
-const About = () => {
-  return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16">About Me</h2>
-        
-        <div className="max-w-4xl mx-auto">
-          <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-            I am a Detail-Oriented Software Quality Assurance Engineer dedicated to delivering reliable, scalable, and bug-free digital products. My core focus is bridging the gap between business requirements and technical execution by ensuring every application is fully functional, user-friendly, and secure before reaching production.
+const timeline = [
+  {
+    icon: GraduationCap,
+    label: "Education",
+    title: "B.Sc. in Artificial Intelligence",
+    meta: "Faculty of Computers & Information, Beni-Suef University · Expected 2028",
+  },
+  {
+    icon: Briefcase,
+    label: "Experience / Training",
+    title: "Software QA Engineer Intern — DEPI",
+    meta: "Digital Egypt Pioneers Initiative · Jun 2025 – Nov 2025",
+  },
+  {
+    icon: Award,
+    label: "Certifications",
+    title: "DEPI Software Testing Track",
+    meta: "Completed training program covering manual, API and automation testing",
+  },
+];
+
+const values = [
+  "End-to-end test case design & execution across SDLC / STLC",
+  "Detailed bug reports with reproduction steps, severity and evidence",
+  "Cross-browser & multi-device testing (Chrome, Firefox, Safari, Android, iOS)",
+  "API & automated testing with Postman, Selenium WebDriver, TestNG and Cucumber",
+];
+
+const About = () => (
+  <section id="about" className="relative py-28">
+    <div className="container mx-auto px-6">
+      <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-[1.1fr_1fr]">
+        <div>
+          <SectionHeading eyebrow="About" title="Detail-oriented QA engineer with an AI background." />
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            I'm a QA Engineer and Artificial Intelligence student with practical experience in{" "}
+            <span className="text-foreground">Manual Testing</span>, <span className="text-foreground">API Testing</span>,{" "}
+            <span className="text-foreground">SQL / database validation</span> and{" "}
+            <span className="text-foreground">Java-based test automation</span>. I bridge business requirements and
+            technical execution so every release is functional, user-friendly and secure before production.
           </p>
-          
-          <div className="text-lg text-muted-foreground mb-6 leading-relaxed">
-            <p className="mb-4">Core Value I Provide:</p>
-            <ul className="space-y-2 ml-6">
-              <li>• <strong>End-to-End Test Case Design & Execution:</strong> Comprehensive coverage across all SDLC / STLC phases.</li>
-              <li>• <strong>Detailed Bug Reporting:</strong> Clear reproduction steps, severity ranking, logs, and screenshots for swift resolution.</li>
-              <li>• <strong>Cross-Browser & Multi-Device Testing:</strong> Flawless behavior on Chrome, Firefox, Safari, Android, and iOS.</li>
-              <li>• <strong>API & Automated Testing:</strong> Robust test automation using Selenium WebDriver, Postman, TestNG, and Cucumber BDD.</li>
-              <li>• <strong>UI/UX Consistency Reviews:</strong> Elevating overall user experience through functional and non-functional validation.</li>
-            </ul>
-          </div>
-          
-          <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-            My approach is built on precision, automation efficiency, and actionable metrics—helping engineering teams fix critical issues faster and launch stable releases with total confidence.
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <GraduationCap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Education</h3>
-                <p className="text-sm text-muted-foreground mb-2">Bachelor's degree in Artificial Intelligence</p>
-                <p className="text-sm text-muted-foreground mb-2">Faculty of Computers and Information</p>
-                <p className="text-sm text-muted-foreground mb-2">Beni-Suef University</p>
-                <p className="text-sm text-muted-foreground">Expected Graduation: 2028</p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <Brain className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">AI Specialization</h3>
-                <p className="text-sm text-muted-foreground">
-                  Pursuing Bachelor's in Artificial Intelligence with focus on machine learning and intelligent systems.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <TestTube className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Quality Assurance</h3>
-                <p className="text-sm text-muted-foreground">
-                  Passionate about software testing with hands-on experience in manual and automated testing practices.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="text-center hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <BookOpen className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="font-semibold mb-2">Continuous Learning</h3>
-                <p className="text-sm text-muted-foreground">
-                  Actively developing skills in C++, Java, Python, and modern testing frameworks.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          <ul className="mt-8 space-y-3">
+            {values.map((v) => (
+              <li key={v} className="flex gap-3 text-muted-foreground">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <span>{v}</span>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        <ol className="relative space-y-4 lg:pt-24">
+          <span className="absolute left-[27px] top-6 bottom-6 w-px bg-gradient-to-b from-primary/60 via-border to-transparent lg:top-30" aria-hidden="true" />
+          {timeline.map(({ icon: Icon, label, title, meta }, i) => (
+            <li key={label} data-reveal style={{ transitionDelay: `${i * 100}ms` }} className="relative flex gap-5">
+              <span className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-border bg-card text-primary">
+                <Icon className="h-6 w-6" />
+              </span>
+              <div className="surface hover-glow flex-1 p-5">
+                <p className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">{label}</p>
+                <h3 className="mt-1.5 font-semibold">{title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">{meta}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;
