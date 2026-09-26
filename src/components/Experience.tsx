@@ -22,7 +22,7 @@ const Experience = () => {
                   </div>
                   <div className="flex items-center text-muted-foreground">
                     <MapPin className="w-4 h-4 mr-2" />
-                    <span>El Faiyum, Egypt – Hybrid</span>
+                    <span>Cairo, Egypt – Hybrid</span>
                   </div>
                 </div>
               </div>

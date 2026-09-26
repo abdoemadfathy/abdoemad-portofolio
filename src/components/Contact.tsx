@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, GraduationCap, Briefcase, Search } from "lucide-react";
+import { Mail, MapPin, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/components/ui/use-toast";
@@ -77,7 +77,7 @@ const Contact = () => {
         
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>
-            <Card className="mb-8">
+            <Card>
               <CardHeader>
                 <CardTitle>Let's Connect</CardTitle>
               </CardHeader>
@@ -89,42 +89,34 @@ const Contact = () => {
                 </p>
                 
                 <div className="space-y-4">
-                  <div className="flex items-center">
-                    <Mail className="w-5 h-5 text-primary mr-3" />
+                  <a href="mailto:abdoemadfathy1@gmail.com" target="_top" className="flex items-center group">
+                    <span className="w-10 h-10 rounded-full border border-border flex items-center justify-center mr-3 hover-glow-soft">
+                      <Mail className="w-5 h-5 text-primary" />
+                    </span>
                     <div>
-                      <p className="font-medium">abdelrahman.emad@example.com</p>
+                      <p className="font-medium group-hover:text-primary transition-colors">abdoemadfathy1@gmail.com</p>
                       <p className="text-sm text-muted-foreground">Send me an email anytime</p>
                     </div>
-                  </div>
+                  </a>
+
+                  <a href="https://wa.me/201126998251" target="_top" rel="noopener noreferrer" className="flex items-center group">
+                    <span className="w-10 h-10 rounded-full border border-border flex items-center justify-center mr-3 hover-glow-soft">
+                      <MessageCircle className="w-5 h-5 text-primary" />
+                    </span>
+                    <div>
+                      <p className="font-medium group-hover:text-primary transition-colors">+20 112 699 8251</p>
+                      <p className="text-sm text-muted-foreground">Chat with me on WhatsApp</p>
+                    </div>
+                  </a>
                   
                   <div className="flex items-center">
-                    <MapPin className="w-5 h-5 text-primary mr-3" />
+                    <span className="w-10 h-10 rounded-full border border-border flex items-center justify-center mr-3">
+                      <MapPin className="w-5 h-5 text-primary" />
+                    </span>
                     <div>
-                      <p className="font-medium">El Faiyum, Egypt</p>
-                      <p className="text-sm text-muted-foreground">Available for hybrid work</p>
+                      <p className="font-medium">Cairo, Egypt</p>
+                      <p className="text-sm text-muted-foreground">Open to Remote &amp; On-site Opportunities</p>
                     </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle>Current Status</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <GraduationCap className="w-5 h-5 text-primary mr-3" />
-                    <span>Computer Science Student (AI Specialization)</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Briefcase className="w-5 h-5 text-primary mr-3" />
-                    <span>Software Tester Intern at DEPI</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Search className="w-5 h-5 text-primary mr-3" />
-                    <span>Open to new opportunities in QA and Testing</span>
                   </div>
                 </div>
               </CardContent>
