@@ -1,72 +1,86 @@
-import { Bug, Database, Bot, Wrench } from "lucide-react";
-import SectionHeading from "./SectionHeading";
+import { ClipboardCheck, Wrench, Code2, Users } from "lucide-react";
 
-const groups = [
+const skillGroups = [
   {
-    title: "Testing",
-    icon: Bug,
-    note: "Core QA practice",
-    skills: ["Manual Testing", "Functional Testing", "Regression Testing", "E2E Testing", "Cross-Browser Testing", "Test Case Design", "Bug Reporting"],
+    title: "Testing & Methodologies",
+    icon: ClipboardCheck,
+    skills: [
+      "Manual Testing",
+      "Automation Testing",
+      "API Testing",
+      "Database Testing",
+      "Regression",
+      "E2E Testing",
+      "Smoke & Sanity",
+      "SDLC & STLC",
+      "Bug Lifecycle Management"
+    ]
   },
   {
-    title: "API & Database",
-    icon: Database,
-    note: "Backend validation",
-    skills: ["Postman", "REST API Testing", "SQL", "Database Validation"],
-  },
-  {
-    title: "Automation",
-    icon: Bot,
-    note: "Java test automation",
-    skills: ["Java", "Selenium WebDriver", "TestNG", "Cucumber", "BDD", "Page Object Model", "Maven", "ExtentReports"],
-  },
-  {
-    title: "Tools",
+    title: "Tools & Automation",
     icon: Wrench,
-    note: "Workflow & tracking",
-    skills: ["Jira", "Zephyr Scale", "Git", "GitHub"],
+    skills: [
+      "Selenium WebDriver",
+      "Postman",
+      "TestNG",
+      "Cucumber (BDD)",
+      "Jira",
+      "Zephyr Scale",
+      "SQL Server",
+      "Maven",
+      "Git & GitHub"
+    ]
   },
+  {
+    title: "Languages & Tech",
+    icon: Code2,
+    skills: ["Java", "SQL", "Python", "C++", "HTML/CSS"]
+  },
+  {
+    title: "Domains & Soft Skills",
+    icon: Users,
+    skills: [
+      "E-commerce",
+      "Fitness",
+      "Web & Mobile Apps",
+      "Attention to Detail",
+      "Analytical Thinking",
+      "Team Collaboration"
+    ]
+  }
 ];
 
-const Skills = () => (
-  <section id="skills" className="relative py-28">
-    <div className="container mx-auto px-6">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeading
-          eyebrow="Skills"
-          title="A practical QA toolkit."
-          description="From exploratory manual testing to maintainable Java automation — the tools and methods I use on real projects."
-        />
-        <div className="grid gap-5 md:grid-cols-2">
-          {groups.map(({ title, icon: Icon, note, skills }, i) => (
-            <div key={title} data-reveal style={{ transitionDelay: `${(i % 2) * 90}ms` }} className="surface hover-glow p-7">
-              <div className="mb-6 flex items-center gap-4">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <div>
-                  <h3 className="font-semibold">{title}</h3>
-                  <p className="text-xs text-muted-foreground">{note}</p>
-                </div>
-                <span className="ml-auto font-mono text-xs text-muted-foreground">{String(skills.length).padStart(2, "0")}</span>
+const Skills = () => {
+  return (
+    <section id="skills" className="py-20 bg-secondary/30">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-16">Skills</h2>
+
+        <div className="max-w-5xl mx-auto space-y-10">
+          {skillGroups.map(({ title, icon: Icon, skills }) => (
+            <div key={title}>
+              <div className="flex items-center gap-2 mb-4">
+                <Icon className="w-5 h-5 text-primary" />
+                <h3 className="text-lg font-semibold">{title}</h3>
               </div>
-              <ul className="flex flex-wrap gap-2">
-                {skills.map((s) => (
-                  <li
-                    key={s}
-                    className="flex items-center gap-2 rounded-lg border border-border bg-background/60 px-3 py-1.5 text-sm text-muted-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:text-foreground"
+              <div className="flex flex-wrap gap-3">
+                {skills.map((skill, i) => (
+                  <span
+                    key={skill}
+                    data-reveal
+                    style={{ transitionDelay: `${i * 40}ms` }}
+                    className="px-4 py-1.5 rounded-full bg-secondary/50 border border-border text-sm font-medium hover:border-primary hover:text-primary hover:bg-primary/10 hover-pop cursor-default"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-primary/70" />
-                    {s}
-                  </li>
+                    {skill}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Skills;
