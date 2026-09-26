@@ -34,7 +34,7 @@ const About = () => {
                 <h3 className="font-semibold mb-2">Education</h3>
                 <p className="text-sm text-muted-foreground mb-2">Bachelor's degree in Artificial Intelligence</p>
                 <p className="text-sm text-muted-foreground mb-2">Faculty of Computers and Information</p>
-                <p className="text-sm text-muted-foreground mb-2">Beni-Suef University</p>
+                <p className="text-sm text-muted-foreground mb-2">Cairo, Egypt</p>
                 <p className="text-sm text-muted-foreground">Expected Graduation: 2028</p>
               </CardContent>
             </Card>

@@ -19,7 +19,7 @@ const Hero = () => {
       icon: Github
     },
     {
-      href: "mailto:abdulrahmanemadfathy@gmail.com",
+      href: "mailto:abdoemadfathy1@gmail.com",
       label: "Email",
       icon: Mail
     }
