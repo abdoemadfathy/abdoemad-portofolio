@@ -29,7 +29,7 @@ const Hero = () => {
           </div>
 
           <div className="text-center md:text-left order-2">
-            <h1 className="animate-rise text-4xl md:text-[2.6rem] lg:text-5xl font-bold mb-6 whitespace-nowrap" style={delay(200)}>
+            <h1 className="animate-rise text-4xl md:text-5xl font-bold mb-6 whitespace-nowrap" style={delay(200)}>
               <span className="text-primary">Abdulrahman</span>{" "}
               <span className="text-foreground">Emad</span>
             </h1>
