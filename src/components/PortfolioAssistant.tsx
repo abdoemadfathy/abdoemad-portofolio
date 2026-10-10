@@ -112,10 +112,10 @@ const reply = (raw: string): Msg => {
 
 const ContactButtons = () => (
   <div className="flex gap-2 mt-2">
-    <a href={`mailto:${EMAIL}`} target="_top" className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-primary text-primary-foreground hover-glow-soft">
+    <a href={`mailto:${EMAIL}`} target="_top" className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-primary text-primary-foreground">
       <Mail className="w-3.5 h-3.5" /> Email
     </a>
-    <a href={WHATSAPP} target="_top" rel="noopener noreferrer" className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full border border-primary text-primary hover-glow-soft">
+    <a href={WHATSAPP} target="_top" rel="noopener noreferrer" className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full border border-primary text-primary">
       <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
     </a>
   </div>
@@ -215,7 +215,7 @@ const PortfolioAssistant = () => {
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label="Open portfolio assistant"
-        className="w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:bg-primary/90 hover-glow-soft"
+        className="w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center hover:bg-primary/90"
       >
         <MessageCircle className="w-6 h-6" />
       </button>

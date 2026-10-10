@@ -1,0 +1,52 @@
+/*
+ * Design tokens. Every colour is an HSL triplet consumed by Tailwind as hsl(var(--token)).
+ * Light and dark are both first-class; `.dark` is toggled by next-themes.
+ */
+@layer base {
+  :root {
+    --background: 220 20% 98%;
+    --foreground: 224 30% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 30% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 30% 8%;
+    --primary: 228 88% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 94%;
+    --secondary-foreground: 224 30% 8%;
+    --muted: 220 16% 94%;
+    --muted-foreground: 222 10% 38%;
+    --accent: 228 88% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 88%;
+    --input: 220 14% 86%;
+    --ring: 228 88% 50%;
+    --pass: 158 72% 28%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 225 24% 6%;
+    --foreground: 220 20% 93%;
+    --card: 225 22% 9%;
+    --card-foreground: 220 20% 93%;
+    --popover: 225 22% 9%;
+    --popover-foreground: 220 20% 93%;
+    --primary: 226 100% 71%;
+    --primary-foreground: 225 30% 6%;
+    --secondary: 225 18% 12%;
+    --secondary-foreground: 220 20% 93%;
+    --muted: 225 18% 12%;
+    --muted-foreground: 222 12% 64%;
+    --accent: 226 100% 71%;
+    --accent-foreground: 225 30% 6%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 225 16% 17%;
+    --input: 225 16% 20%;
+    --ring: 226 100% 71%;
+    --pass: 150 62% 52%;
+  }
+}
