@@ -1,5 +1,5 @@
 # SEO updates
-- [ ] Normalize portfolio name and homepage/error-page metadata.
-- [ ] Generate sitemap and reference it in robots.txt.
-- [ ] Use a share-sized profile photo for social previews.
-- [ ] Verify metadata, sitemap, and photo in the preview.
+- [x] Normalize portfolio name and homepage/error-page metadata.
+- [x] Generate sitemap and reference it in robots.txt.
+- [x] Use a share-sized profile photo for social previews.
+- [x] Verify metadata, sitemap, and photo in the preview.
