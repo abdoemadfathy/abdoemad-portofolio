@@ -38,7 +38,7 @@ const Contact = () => {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_name: 'Abdelrahman Emad'
+          to_name: 'Abdulrahman Emad'
         },
         'E7VOxgVprPSrPOGgt'
       );
