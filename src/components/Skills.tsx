@@ -1,86 +1,40 @@
-import { ClipboardCheck, Wrench, Code2, Users } from "lucide-react";
+import { motion } from "framer-motion";
+import Section from "@/components/common/Section";
+import { Stagger, StaggerItem } from "@/components/common/Reveal";
+import { ICONS } from "@/components/common/icons";
+import TechBadge from "@/components/TechBadge";
+import { skillGroups } from "@/data/portfolioData";
+import { VIEWPORT, staggerGroup } from "@/lib/motion";
 
-const skillGroups = [
-  {
-    title: "Testing & Methodologies",
-    icon: ClipboardCheck,
-    skills: [
-      "Manual Testing",
-      "Automation Testing",
-      "API Testing",
-      "Database Testing",
-      "Regression",
-      "E2E Testing",
-      "Smoke & Sanity",
-      "SDLC & STLC",
-      "Bug Lifecycle Management"
-    ]
-  },
-  {
-    title: "Tools & Automation",
-    icon: Wrench,
-    skills: [
-      "Selenium WebDriver",
-      "Postman",
-      "TestNG",
-      "Cucumber (BDD)",
-      "Jira",
-      "Zephyr Scale",
-      "SQL Server",
-      "Maven",
-      "Git & GitHub"
-    ]
-  },
-  {
-    title: "Languages & Tech",
-    icon: Code2,
-    skills: ["Java", "SQL", "Python", "C++", "HTML/CSS"]
-  },
-  {
-    title: "Domains & Soft Skills",
-    icon: Users,
-    skills: [
-      "E-commerce",
-      "Fitness",
-      "Web & Mobile Apps",
-      "Attention to Detail",
-      "Analytical Thinking",
-      "Team Collaboration"
-    ]
-  }
-];
+const chips = staggerGroup(0.035, 0.1);
 
-const Skills = () => {
-  return (
-    <section id="skills" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16">Skills</h2>
-
-        <div className="max-w-5xl mx-auto space-y-10">
-          {skillGroups.map(({ title, icon: Icon, skills }) => (
-            <div key={title}>
-              <div className="flex items-center gap-2 mb-4">
-                <Icon className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-semibold">{title}</h3>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill, i) => (
-                  <span
-                    key={skill}
-                    data-reveal
-                    style={{ transitionDelay: `${i * 40}ms` }}
-                    className="px-4 py-1.5 rounded-full bg-secondary/50 border border-border text-sm font-medium hover:border-primary hover:text-primary hover:bg-primary/10 hover-pop cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+const Skills = () => (
+  <Section id="skills" title="Skills" description="The methods, tools, and languages I use day to day.">
+    <Stagger className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+      {skillGroups.map(({ title, icon, skills }, g) => {
+        const Icon = ICONS[icon];
+        return (
+          <StaggerItem key={title}>
+            <div className="mb-4 flex items-center gap-2.5">
+              <Icon className="h-5 w-5 text-primary" />
+              <h3 className="font-display text-lg font-semibold">{title}</h3>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
+            <motion.div
+              variants={chips}
+              initial="hidden"
+              whileInView="visible"
+              viewport={VIEWPORT}
+              className="flex flex-wrap gap-2"
+            >
+              {skills.map((s) => (
+                <TechBadge key={s} label={s} tone={g === 1 ? "tech" : "skill"} />
+              ))}
+            </motion.div>
+          </StaggerItem>
+        );
+      })}
+    </Stagger>
+  </Section>
+);
 
 export default Skills;

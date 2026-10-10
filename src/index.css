@@ -1,56 +1,7 @@
+@import "./styles/theme.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Portfolio Design System - Rich Slate Soft Dark */
-
-@layer base {
-  :root {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-
-    --card: 217 33% 17%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 217 33% 17%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 217 33% 22%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217 33% 20%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 215 25% 27%;
-    --input: 215 25% 27%;
-    --ring: 217 91% 60%;
-
-    --radius: 0.75rem;
-
-    /* Tag colors */
-    --tag-tech: 217 91% 60%;
-    --tag-skill: 160 70% 45%;
-    --indigo: 239 84% 67%;
-
-    /* Portfolio specific tokens */
-    --hero-bg: linear-gradient(135deg, hsl(222 47% 11%) 0%, hsl(217 33% 17%) 100%);
-    --card-hover: 217 33% 21%;
-    --text-highlight: 217 91% 70%;
-    --skill-bg: 217 33% 20%;
-    --project-featured: linear-gradient(135deg, hsl(239 84% 67%) 0%, hsl(217 91% 60%) 100%);
-    --glow-primary: 0 0 0 1px hsl(var(--indigo) / 0.45), 0 14px 32px -14px hsl(var(--indigo) / 0.55);
-    --shadow-elegant: 0 18px 40px -20px hsl(222 60% 4% / 0.8);
-  }
-}
 
 @layer base {
   * {
@@ -59,90 +10,39 @@
 
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
 @layer utilities {
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition:
-      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-
-  .reveal.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Micro-interactions */
-  .hover-glow {
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease,
-      border-color 0.3s ease;
-  }
-
-  .hover-glow:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--glow-primary);
-    border-color: hsl(var(--indigo) / 0.6);
-  }
-
-  .hover-pop {
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease;
-  }
-
-  .hover-pop:hover {
-    transform: scale(1.04);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  }
-
-  /* Page-load entrances */
-  @keyframes hero-img-in {
-    from { opacity: 0; transform: scale(0.85); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  @keyframes rise-in {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-hero-img {
-    animation: hero-img-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  .animate-rise {
-    animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  .hover-glow-soft {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .hover-glow-soft:hover {
-    transform: scale(1.06);
-    box-shadow: var(--glow-primary);
+  /* Faint engineering grid used behind the hero, fading out toward the edges. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.55) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.55) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .animate-hero-img,
-  .animate-rise {
-    animation: none;
   }
 }
