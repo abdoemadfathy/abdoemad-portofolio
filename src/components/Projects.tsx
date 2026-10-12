@@ -2,16 +2,17 @@ import { useState } from "react";
 import Section from "@/components/common/Section";
 import { Reveal } from "@/components/common/Reveal";
 import ProjectRow from "@/components/projects/ProjectRow";
-import { projects } from "@/data/portfolioData";
+import { usePortfolio } from "@/i18n/LanguageProvider";
 
 const Projects = () => {
+  const { t, projects } = usePortfolio();
   const [openId, setOpenId] = useState<string | null>(projects[0]?.id ?? null);
 
   return (
     <Section
       id="projects"
-      title="Selected projects"
-      description="Testing work across e-commerce, banking, API, and mobile. Open a project to see what I tested and how."
+      title={t.projects.title}
+      description={t.projects.description}
     >
       <div className="border-t border-border">
         {projects.map((project) => (
@@ -25,7 +26,7 @@ const Projects = () => {
         ))}
       </div>
       <p className="mt-8 text-sm text-muted-foreground">
-        More projects are on the way, including test automation and AI-assisted testing.
+        {t.projects.note}
       </p>
     </Section>
   );

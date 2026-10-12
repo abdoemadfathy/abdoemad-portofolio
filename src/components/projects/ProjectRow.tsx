@@ -1,22 +1,16 @@
 import { useId, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Check, Plus } from "lucide-react";
+import { ArrowUpRight, Check, Images, Plus } from "lucide-react";
+import MediaGallery from "@/components/gallery/MediaGallery";
+import ResultsPanel from "@/components/gallery/ResultsPanel";
 import TechBadge from "@/components/TechBadge";
 import { EASE_OUT, SPRING_SNAPPY, staggerGroup } from "@/lib/motion";
-import type { Project, ProjectCategory } from "@/types/portfolio";
-
-const CATEGORY_LABEL: Record<ProjectCategory, string> = {
-  ecommerce: "E-commerce QA",
-  api: "API testing",
-  manual: "Manual QA",
-  banking: "Banking QA",
-  mobile: "Mobile app QA",
-};
+import { usePortfolio, type ResolvedProject } from "@/i18n/LanguageProvider";
 
 const chips = staggerGroup(0.035, 0.12);
 
 interface ProjectRowProps {
-  project: Project;
+  project: ResolvedProject;
   open: boolean;
   onToggle: () => void;
 }
@@ -28,6 +22,8 @@ interface ProjectRowProps {
 const ProjectRow = ({ project, open, onToggle }: ProjectRowProps) => {
   const ref = useRef<HTMLElement>(null);
   const panelId = useId();
+  const { t } = usePortfolio();
+  const p = t.projects;
   const isApi = project.category === "api";
 
   const onMove = (e: React.MouseEvent) => {
@@ -42,19 +38,34 @@ const ProjectRow = ({ project, open, onToggle }: ProjectRowProps) => {
     <article
       ref={ref}
       onMouseMove={onMove}
-      className="group relative border-b border-border [background:radial-gradient(420px_circle_at_var(--mx,50%)_var(--my,50%),hsl(var(--primary)/0.07),transparent_60%)_no-repeat] [background-size:100%_100%]"
+      className="group relative border-b border-border hover:[background:radial-gradient(420px_circle_at_var(--mx,50%)_var(--my,50%),hsl(var(--primary)/0.07),transparent_60%)_no-repeat] [background-size:100%_100%]"
     >
       <button
         onClick={onToggle}
         aria-expanded={open}
         aria-controls={panelId}
-        className="flex w-full items-start gap-6 py-7 text-left"
+        aria-label={`${project.title}. ${open ? p.collapse : p.expand}`}
+        className="flex w-full items-start gap-6 py-7 text-start"
       >
         <div className="min-w-0 flex-1">
           <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
-            <span>{CATEGORY_LABEL[project.category]}</span>
-            <span aria-hidden className="h-3 w-px bg-border" />
-            <span>{project.period}</span>
+            <span>{p.categories[project.category]}</span>
+            {project.period && (
+              <>
+                <span aria-hidden className="h-3 w-px bg-border" />
+                <span>{project.period}</span>
+              </>
+            )}
+            {project.media.length > 0 && (
+              <>
+                <span aria-hidden className="h-3 w-px bg-border" />
+                <span className="inline-flex items-center gap-1.5" title={p.screenshots}>
+                  <Images className="h-3.5 w-3.5" aria-hidden />
+                  <span className="sr-only">{p.screenshots}: </span>
+                  <span className="tabular-nums">{project.media.length}</span>
+                </span>
+              </>
+            )}
           </div>
           <h3 className="font-display text-xl font-semibold leading-snug tracking-tight transition-colors group-hover:text-primary md:text-2xl">
             {project.title}
@@ -80,7 +91,8 @@ const ProjectRow = ({ project, open, onToggle }: ProjectRowProps) => {
             transition={{ duration: 0.35, ease: EASE_OUT }}
             className="overflow-hidden"
           >
-            <div className="grid gap-8 pb-8 md:grid-cols-2">
+            <div className="space-y-8 pb-8">
+            <div className="grid gap-8 md:grid-cols-2">
               <ul className="space-y-3">
                 {project.features.map((f) => (
                   <li key={f} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
@@ -92,15 +104,15 @@ const ProjectRow = ({ project, open, onToggle }: ProjectRowProps) => {
 
               <div className="space-y-5">
                 <div>
-                  <h4 className="mb-2 text-sm font-medium">Technologies</h4>
+                  <h4 className="mb-2 text-sm font-medium">{p.technologies}</h4>
                   <motion.div variants={chips} initial="hidden" animate="visible" className="flex flex-wrap gap-1.5">
-                    {project.technologies.map((t) => (
-                      <TechBadge key={t} label={t} tone="tech" />
+                    {project.technologies.map((tech) => (
+                      <TechBadge key={tech} label={tech} tone="tech" />
                     ))}
                   </motion.div>
                 </div>
                 <div>
-                  <h4 className="mb-2 text-sm font-medium">Skills developed</h4>
+                  <h4 className="mb-2 text-sm font-medium">{p.skillsDeveloped}</h4>
                   <motion.div variants={chips} initial="hidden" animate="visible" className="flex flex-wrap gap-1.5">
                     {project.skills.map((s) => (
                       <TechBadge key={s} label={s} tone="skill" />
@@ -114,11 +126,24 @@ const ProjectRow = ({ project, open, onToggle }: ProjectRowProps) => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85"
                   >
-                    {isApi ? "View test suite" : "View code"}
+                    {isApi ? p.viewSuite : p.viewCode}
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
                 )}
               </div>
+            </div>
+            {project.results && (
+              <div>
+                <h4 className="mb-3 text-sm font-medium">{p.results}</h4>
+                <ResultsPanel groups={project.results} />
+              </div>
+            )}
+            {project.media.length > 0 && (
+              <div>
+                <h4 className="mb-3 text-sm font-medium">{p.screenshots}</h4>
+                <MediaGallery items={project.media} />
+              </div>
+            )}
             </div>
           </motion.div>
         )}

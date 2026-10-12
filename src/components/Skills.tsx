@@ -3,15 +3,17 @@ import Section from "@/components/common/Section";
 import { Stagger, StaggerItem } from "@/components/common/Reveal";
 import { ICONS } from "@/components/common/icons";
 import TechBadge from "@/components/TechBadge";
-import { skillGroups } from "@/data/portfolioData";
+import { usePortfolio } from "@/i18n/LanguageProvider";
 import { VIEWPORT, staggerGroup } from "@/lib/motion";
 
 const chips = staggerGroup(0.035, 0.1);
 
-const Skills = () => (
-  <Section id="skills" title="Skills" description="The methods, tools, and languages I use day to day.">
+const Skills = () => {
+  const { t } = usePortfolio();
+  return (
+  <Section id="skills" title={t.skills.title} description={t.skills.description}>
     <Stagger className="grid gap-x-10 gap-y-10 sm:grid-cols-2">
-      {skillGroups.map(({ title, icon, skills }, g) => {
+      {t.skills.groups.map(({ title, icon, skills }, g) => {
         const Icon = ICONS[icon];
         return (
           <StaggerItem key={title}>
@@ -35,6 +37,7 @@ const Skills = () => (
       })}
     </Stagger>
   </Section>
-);
+  );
+};
 
 export default Skills;

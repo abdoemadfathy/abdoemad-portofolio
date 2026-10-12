@@ -7,11 +7,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import Section from "@/components/common/Section";
 import { Reveal } from "@/components/common/Reveal";
-import { profile } from "@/data/portfolioData";
+import { usePortfolio } from "@/i18n/LanguageProvider";
 
 const initialForm = { phone: "", email: "", subject: "", message: "" };
 
 const Contact = () => {
+  const { t, contact: profile } = usePortfolio();
+  const c = t.contact;
   const [formData, setFormData] = useState(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -28,7 +30,7 @@ const Contact = () => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      toast({ title: "Couldn't copy the email", description: `Please copy it manually: ${profile.email}` });
+      toast({ title: c.copyFailTitle, description: c.copyFailText(profile.email) });
     }
   };
 
@@ -44,19 +46,19 @@ const Contact = () => {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_name: profile.name,
+          to_name: t.profile.name,
         },
         "E7VOxgVprPSrPOGgt",
       );
       toast({
-        title: "Message sent",
-        description: "Thank you. I'll get back to you soon.",
+        title: c.sentTitle,
+        description: c.sentText,
       });
       setFormData(initialForm);
     } catch {
       toast({
-        title: "Message not sent",
-        description: `Please try again, or email me directly at ${profile.email}.`,
+        title: c.failTitle,
+        description: c.failText(profile.email),
         variant: "destructive",
       });
     } finally {
@@ -67,11 +69,12 @@ const Contact = () => {
   return (
     <Section
       id="contact"
-      title="Contact"
-      description="Hiring for QA, or have a release that needs a second pair of eyes? I'm open to internship and entry-level roles, remote or on-site."
+      title={c.title}
+      description={c.description}
     >
       <Reveal>
         <a
+          dir="ltr"
           href={`mailto:${profile.email}`}
           target="_top"
           className="inline-block break-all font-display text-3xl font-semibold tracking-tight underline decoration-border decoration-2 underline-offset-8 transition-colors hover:decoration-primary sm:text-4xl md:text-5xl"
@@ -84,7 +87,7 @@ const Contact = () => {
             className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-primary/50"
           >
             {copied ? <Check className="h-4 w-4 text-pass" /> : <Copy className="h-4 w-4" />}
-            {copied ? "Copied" : "Copy email"}
+            {copied ? c.copied : c.copy}
           </button>
           <a
             href={`https://wa.me/${profile.phone.replace("+", "")}`}
@@ -93,11 +96,11 @@ const Contact = () => {
             className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-primary/50"
           >
             <MessageCircle className="h-4 w-4" />
-            WhatsApp {profile.phoneDisplay}
+            {c.whatsapp} <bdi dir="ltr">{profile.phoneDisplay}</bdi>
           </a>
           <span className="inline-flex items-center gap-2 px-2 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" />
-            {profile.location}
+            {t.profile.location}
           </span>
         </div>
       </Reveal>
@@ -106,30 +109,30 @@ const Contact = () => {
         <form onSubmit={handleSubmit} className="space-y-4 border-t border-border pt-10">
           <h3 className="flex items-center gap-2 font-display text-xl font-semibold">
             <Mail className="h-5 w-5 text-primary" />
-            Send a message
+            {c.sendTitle}
           </h3>
           <div className="grid gap-4 sm:grid-cols-2">
-            <Input name="phone" placeholder="Phone number" value={formData.phone} onChange={handleInputChange} />
+            <Input name="phone" placeholder={c.placeholders.phone} value={formData.phone} onChange={handleInputChange} />
             <Input
               name="email"
-              placeholder="Email address"
+              placeholder={c.placeholders.email}
               type="email"
               value={formData.email}
               onChange={handleInputChange}
               required
             />
           </div>
-          <Input name="subject" placeholder="Subject" value={formData.subject} onChange={handleInputChange} required />
+          <Input name="subject" placeholder={c.placeholders.subject} value={formData.subject} onChange={handleInputChange} required />
           <Textarea
             name="message"
-            placeholder="How can I help?"
+            placeholder={c.placeholders.message}
             rows={6}
             value={formData.message}
             onChange={handleInputChange}
             required
           />
           <Button type="submit" size="lg" className="rounded-full px-8" disabled={isSubmitting}>
-            {isSubmitting ? "Sending" : "Send message"}
+            {isSubmitting ? c.sending : c.send}
           </Button>
         </form>
       </Reveal>

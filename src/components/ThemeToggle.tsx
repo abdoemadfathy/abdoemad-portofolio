@@ -3,8 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SPRING_SNAPPY } from "@/lib/motion";
+import { usePortfolio } from "@/i18n/LanguageProvider";
 
 const ThemeToggle = () => {
+  const { t } = usePortfolio();
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -17,7 +19,7 @@ const ThemeToggle = () => {
       whileTap={{ scale: 0.92 }}
       transition={SPRING_SNAPPY}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      aria-label={isDark ? t.ui.toLight : t.ui.toDark}
       className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
     >
       <AnimatePresence mode="wait" initial={false}>

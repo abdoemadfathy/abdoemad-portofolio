@@ -4,7 +4,7 @@ import Section from "@/components/common/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/common/Reveal";
 import { ICONS } from "@/components/common/icons";
 import profileImage from "@/assets/profile-image.jpg";
-import { aboutIntro, aboutOutro, highlights, profile, stats, valuePoints } from "@/data/portfolioData";
+import { usePortfolio } from "@/i18n/LanguageProvider";
 
 const Counter = ({ to, run }: { to: number; run: boolean }) => {
   const [n, setN] = useState(0);
@@ -24,13 +24,15 @@ const Counter = ({ to, run }: { to: number; run: boolean }) => {
 };
 
 const About = () => {
+  const { t } = usePortfolio();
+  const { profile, about } = t;
   const statsRef = useRef<HTMLDListElement>(null);
   const seen = useInView(statsRef, { once: true, amount: 0.4 });
 
   return (
     <Section
       id="about"
-      title="About"
+      title={about.title}
       aside={
         <Reveal delay={0.1} className="mt-8 hidden md:block">
           <img
@@ -43,11 +45,11 @@ const About = () => {
       }
     >
       <Reveal>
-        <p className="font-display text-2xl font-medium leading-snug tracking-tight md:text-[1.75rem]">{aboutIntro}</p>
+        <p className="font-display text-2xl font-medium leading-snug tracking-tight md:text-[1.75rem]">{about.intro}</p>
       </Reveal>
 
       <dl ref={statsRef} className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-y border-border py-8 lg:grid-cols-4">
-        {stats.map((s) => (
+        {about.stats.map((s) => (
           <div key={s.label}>
             <dt className="order-2 mt-1 text-sm leading-snug text-muted-foreground">{s.label}</dt>
             <dd className="order-1 font-display text-4xl font-semibold tabular-nums tracking-tight">
@@ -58,9 +60,9 @@ const About = () => {
         ))}
       </dl>
 
-      <h3 className="mb-2 mt-14 font-display text-xl font-semibold">What you get when we work together</h3>
+      <h3 className="mb-2 mt-14 font-display text-xl font-semibold">{about.valuesTitle}</h3>
       <Stagger as="ul">
-        {valuePoints.map((v) => (
+        {about.values.map((v) => (
           <StaggerItem as="li" key={v.title} className="grid gap-1 border-b border-border py-4 sm:grid-cols-5 sm:gap-6">
             <span className="font-medium sm:col-span-2">{v.title}</span>
             <span className="text-muted-foreground sm:col-span-3">{v.text}</span>
@@ -69,11 +71,11 @@ const About = () => {
       </Stagger>
 
       <Reveal>
-        <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">{aboutOutro}</p>
+        <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">{about.outro}</p>
       </Reveal>
 
       <Stagger className="mt-12 grid gap-8 sm:grid-cols-3">
-        {highlights.map(({ icon, title, text }) => {
+        {about.highlights.map(({ icon, title, text }) => {
           const Icon = ICONS[icon];
           return (
             <StaggerItem key={title}>

@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Bricolage Grotesque Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
-        sans: ['"Hanken Grotesk Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Bricolage Grotesque Variable"', '"Readex Pro Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ['"Hanken Grotesk Variable"', '"Noto Sans Arabic Variable"', "ui-sans-serif", "system-ui", "sans-serif"],
         mono: ['"JetBrains Mono Variable"', "ui-monospace", "SFMono-Regular", "monospace"],
       },
       colors: {

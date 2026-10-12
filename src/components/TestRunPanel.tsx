@@ -1,19 +1,20 @@
 import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Check, Loader2, RotateCcw } from "lucide-react";
-import { testRun } from "@/data/portfolioData";
+import { usePortfolio } from "@/i18n/LanguageProvider";
 import { EASE_OUT } from "@/lib/motion";
 
 const STEP_MS = 520;
 const START_DELAY_MS = 1300;
 
-const total = testRun.reduce((sum, l) => sum + l.ms, 0);
 
 /**
  * The hero's signature moment: a test suite that runs once on load and passes
  * line by line. The person can run it again. Reduced motion shows the result.
  */
 const TestRunPanel = () => {
+  const { testRun, t } = usePortfolio();
+  const total = testRun.reduce((sum, l) => sum + l.ms, 0);
   const reduced = useReducedMotion();
   const [step, setStep] = useState(reduced ? testRun.length : 0);
   const [runId, setRunId] = useState(0);
@@ -29,13 +30,13 @@ const TestRunPanel = () => {
       timers.push(setTimeout(() => setStep(i + 1), (runId === 0 ? START_DELAY_MS : 250) + (i + 1) * STEP_MS));
     });
     return () => timers.forEach(clearTimeout);
-  }, [runId, reduced]);
+  }, [runId, reduced, testRun]);
 
   const done = step >= testRun.length;
   const rerun = useCallback(() => setRunId((n) => n + 1), []);
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card/70 shadow-[0_30px_80px_-40px_hsl(var(--primary)/0.45)] backdrop-blur-xl">
+    <div dir="ltr" className="ltr-island overflow-hidden rounded-2xl border border-border bg-card/70 shadow-[0_30px_80px_-40px_hsl(var(--primary)/0.45)] backdrop-blur-xl">
       <div className="flex items-center justify-between border-b border-border px-5 py-3.5">
         <div className="flex items-center gap-2">
           <span className="h-2.5 w-2.5 rounded-full bg-border" />
@@ -98,8 +99,8 @@ const TestRunPanel = () => {
               transition={{ duration: 0.2 }}
             >
               {done
-                ? `${testRun.length} passed, 0 failed in ${(total / 1000).toFixed(1)} s`
-                : `${step} of ${testRun.length} complete`}
+                ? t.hero.runSummary(testRun.length, (total / 1000).toFixed(1))
+                : t.hero.runProgress(step, testRun.length)}
             </motion.span>
           </AnimatePresence>
           <button
