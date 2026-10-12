@@ -8,10 +8,13 @@ const Experience = () => {
   const { t, certificate } = usePortfolio();
   const { experience } = t;
   return (
-    <Section id="experience" title={experience.title}>
-      {experience.items.map((job) => (
-        <div key={job.company}>
+    <Section id="experience" title={experience.title} description={experience.description}>
+      {experience.items.map((job, i) => (
+        <div key={job.company} className={i > 0 ? "mt-14 border-t border-border pt-12" : ""}>
           <Reveal>
+            <span className="mb-3 inline-block rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+              {job.type}
+            </span>
             <h3 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">{job.role}</h3>
             <p className="mt-2 text-lg font-medium text-primary">{job.company}</p>
             <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
@@ -26,7 +29,7 @@ const Experience = () => {
             </div>
           </Reveal>
 
-          <Stagger as="ul" className="mt-10 space-y-5 border-s border-border ps-6">
+          <Stagger as="ul" className="mt-8 space-y-5 border-s border-border ps-6">
             {job.points.map((p) => (
               <StaggerItem as="li" key={p} className="relative leading-relaxed text-muted-foreground">
                 <span className="absolute -start-[29px] top-2.5 h-1.5 w-1.5 rounded-full bg-primary" />
