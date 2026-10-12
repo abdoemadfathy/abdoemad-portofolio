@@ -1,3 +1,9 @@
+/* -------------------------------------------------------------------------- */
+/*  Language-neutral data (src/data/portfolioData.ts)                         */
+/* -------------------------------------------------------------------------- */
+
+export type Lang = "en" | "ar";
+
 export type SocialKey = "linkedin" | "github" | "email" | "whatsapp";
 
 export interface SocialLink {
@@ -6,49 +12,24 @@ export interface SocialLink {
   href: string;
 }
 
-export interface Profile {
-  name: string;
-  firstName: string;
-  lastName: string;
-  /** Job title shown in the hero. */
-  role: string;
-  /** Core competencies, rendered next to the role. */
-  stack: string[];
-  /** One-paragraph hero bio. */
-  bio: string;
-  location: string;
+export interface ContactInfo {
   email: string;
   /** E.164-style number used for links. */
   phone: string;
   /** Human-readable number used for display. */
   phoneDisplay: string;
-  cv: {
-    url: string;
-    downloadName: string;
-  };
-  avatarAlt: string;
+  cv: { url: string; downloadName: string };
   socials: SocialLink[];
 }
 
-export type ProjectCategory = "ecommerce" | "api" | "manual" | "banking" | "mobile";
-
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  period: string;
-  category: ProjectCategory;
-  technologies: string[];
-  features: string[];
-  skills: string[];
-  /** Public repository, when one exists. */
-  repoUrl?: string;
-  featured: boolean;
-}
-
-/* -------------------------------------------------------------------------- */
-/*  Portfolio sections                                                        */
-/* -------------------------------------------------------------------------- */
+export type ProjectCategory =
+  | "ecommerce"
+  | "api"
+  | "manual"
+  | "banking"
+  | "mobile"
+  | "automation"
+  | "database";
 
 export type IconKey =
   | "check"
@@ -65,6 +46,62 @@ export type IconKey =
   | "brain"
   | "test"
   | "book";
+
+/** An optimised screenshot stored in public/media (full size and thumbnail, both webp). */
+export interface MediaFile {
+  id: string;
+  src: string;
+  thumb: string;
+  width: number;
+  height: number;
+}
+
+export type ResultKey =
+  | "total"
+  | "passed"
+  | "failed"
+  | "skipped"
+  | "critical"
+  | "high"
+  | "medium"
+  | "low";
+
+export type ResultKind = "tests" | "automatedRun" | "bugsBySeverity" | "bugsByPriority";
+
+export interface ResultGroup {
+  kind: ResultKind;
+  items: { key: ResultKey; value: number }[];
+}
+
+export interface ProjectMeta {
+  id: string;
+  category: ProjectCategory;
+  period?: string;
+  technologies: string[];
+  skills: string[];
+  repoUrl?: string;
+  featured: boolean;
+  media: MediaFile[];
+  results?: ResultGroup[];
+}
+
+/** Test-run lines in the hero panel. Terminal output stays in English in every language. */
+export interface TestRunLine {
+  label: string;
+  ms: number;
+}
+
+/* -------------------------------------------------------------------------- */
+/*  Translatable content (src/data/locales/*.ts)                              */
+/* -------------------------------------------------------------------------- */
+
+export interface ProjectText {
+  title: string;
+  description: string;
+  features: string[];
+  /** Keyed by MediaFile.id. */
+  captions?: Record<string, string>;
+}
 
 export interface Stat {
   value: number;
@@ -89,7 +126,7 @@ export interface Service {
   description: string;
 }
 
-export interface Experience {
+export interface ExperienceItem {
   role: string;
   company: string;
   period: string;
@@ -103,7 +140,141 @@ export interface SkillGroup {
   skills: string[];
 }
 
-export interface TestRunLine {
-  label: string;
-  ms: number;
+export interface KbTopic {
+  keys: string[];
+  answers: string[];
+}
+
+export interface Content {
+  lang: Lang;
+  htmlLang: string;
+  dir: "ltr" | "rtl";
+  ogLocale: string;
+
+  seo: { title: string; description: string };
+
+  profile: {
+    name: string;
+    firstName: string;
+    lastName: string;
+    role: string;
+    stack: string[];
+    bio: string;
+    location: string;
+    avatarAlt: string;
+    jobTitle: string;
+  };
+
+  ui: {
+    skipToContent: string;
+    mainNav: string;
+    nav: { about: string; experience: string; skills: string; projects: string; contact: string };
+    downloadCv: string;
+    openMenu: string;
+    closeMenu: string;
+    toLight: string;
+    toDark: string;
+    /** Label of the link that switches to the other language. */
+    otherLangLabel: string;
+    otherLangAria: string;
+  };
+
+  hero: {
+    availability: string;
+    headline: string;
+    tagline: string;
+    stackLine: string;
+    seeProjects: string;
+    illustrationNote: string;
+    scrollAria: string;
+    runSummary: (total: number, seconds: string) => string;
+    runProgress: (done: number, total: number) => string;
+  };
+
+  tools: { label: string };
+
+  about: {
+    title: string;
+    intro: string;
+    stats: Stat[];
+    valuesTitle: string;
+    values: ValuePoint[];
+    outro: string;
+    highlights: Highlight[];
+  };
+
+  services: { title: string; description: string; items: Service[] };
+
+  experience: {
+    title: string;
+    items: ExperienceItem[];
+    certificateTitle: string;
+    certificateText: string;
+    certificateCaption: string;
+  };
+
+  skills: { title: string; description: string; groups: SkillGroup[] };
+
+  projects: {
+    title: string;
+    description: string;
+    note: string;
+    categories: Record<ProjectCategory, string>;
+    viewCode: string;
+    viewSuite: string;
+    technologies: string;
+    skillsDeveloped: string;
+    screenshots: string;
+    results: string;
+    resultTitles: Record<ResultKind, string>;
+    resultLabels: Record<ResultKey, string>;
+    expand: string;
+    collapse: string;
+    items: Record<string, ProjectText>;
+  };
+
+  contact: {
+    title: string;
+    description: string;
+    copy: string;
+    copied: string;
+    whatsapp: string;
+    sendTitle: string;
+    placeholders: { phone: string; email: string; subject: string; message: string };
+    send: string;
+    sending: string;
+    sentTitle: string;
+    sentText: string;
+    failTitle: string;
+    failText: (email: string) => string;
+    copyFailTitle: string;
+    copyFailText: (email: string) => string;
+  };
+
+  footer: { rights: (year: number) => string; backToTop: string };
+
+  lightbox: {
+    close: string;
+    previous: string;
+    next: string;
+    counter: (n: number, total: number) => string;
+    zoomIn: string;
+  };
+
+  assistant: {
+    title: string;
+    open: string;
+    close: string;
+    welcome: string;
+    placeholder: string;
+    send: string;
+    typing: string;
+    fallback: string;
+    suggestions: string[];
+    email: string;
+    whatsapp: string;
+    kb: KbTopic[];
+  };
+
+  notFound: { seoTitle: string; seoDescription: string; title: string; text: string; cta: string };
 }

@@ -28,7 +28,9 @@ The hero shows a short animated test run that passes line by line, a small nod t
 
 - **Light and dark themes.** Follows the system preference by default, with a toggle in the header.
 - **Considered motion.** One orchestrated hero sequence, spring-based hover and press feedback, and an expanding project list. Motion tokens live in one file, and the `prefers-reduced-motion` setting is respected.
-- **Content separated from UI.** Profile, projects, skills, and experience live in `src/data/portfolioData.ts` with matching types, so updating the site never means editing components.
+- **English and Arabic.** The site is available at `/` and `/ar`, with full right-to-left layout, Arabic typography, hreflang tags, and a language switch in the header.
+- **Project galleries.** Each project can carry real screenshots, shown as a thumbnail grid with a keyboard-accessible full-screen viewer, plus result bars built from the project's own report numbers.
+- **Content separated from UI.** Language-neutral data lives in `src/data/portfolioData.ts`, text for each language in `src/data/locales/`, with matching types, so updating the site never means editing components.
 - **Responsive and accessible.** Works from 360 px phones to wide desktops, with visible keyboard focus, semantic landmarks, and accessible names on icon buttons.
 - **Working contact form** through EmailJS, plus a copy-email shortcut and a WhatsApp link.
 - **Search and share ready.** Metadata in `index.html` and React Helmet, a generated sitemap, and a share-sized portrait for social previews.
@@ -52,7 +54,7 @@ The hero shows a short animated test run that passes line by line, a small nod t
 | Styling | Tailwind CSS, shadcn/ui primitives, CSS variable design tokens |
 | Motion | Framer Motion |
 | Theming | next-themes |
-| Typography | Bricolage Grotesque, Hanken Grotesk, JetBrains Mono (self-hosted via Fontsource) |
+| Typography | Bricolage Grotesque, Hanken Grotesk, JetBrains Mono, with Readex Pro and Noto Sans Arabic for Arabic (self-hosted via Fontsource) |
 | Forms | EmailJS |
 | SEO | React Helmet Async, generated `sitemap.xml` |
 
@@ -82,6 +84,7 @@ The dev server runs at <http://localhost:8080>.
 src/
 ├── components/
 │   ├── common/          Shared building blocks: Section, Reveal, icons
+│   ├── gallery/         Thumbnail grid, lazy lightbox, results bars
 │   ├── projects/        Expandable project row
 │   ├── ui/              shadcn/ui primitives
 │   ├── Hero.tsx         Headline and animated test-run panel
@@ -91,7 +94,10 @@ src/
 │   ├── Projects.tsx
 │   └── Contact.tsx
 ├── data/
-│   └── portfolioData.ts All site content (profile, projects, skills, ...)
+│   ├── portfolioData.ts Language-neutral data (links, project meta, screenshots, numbers)
+│   └── locales/         en.ts and ar.ts: all readable text per language
+├── i18n/
+│   └── LanguageProvider.tsx  Merges data with the active language
 ├── types/
 │   └── portfolio.ts     Types for the content above
 ├── lib/
@@ -104,12 +110,15 @@ src/
 
 ## Updating the content
 
-Almost everything you read on the site comes from [`src/data/portfolioData.ts`](src/data/portfolioData.ts).
+Language-neutral facts live in [`src/data/portfolioData.ts`](src/data/portfolioData.ts). Everything a visitor reads lives in [`src/data/locales/en.ts`](src/data/locales/en.ts) and [`ar.ts`](src/data/locales/ar.ts), which share one `Content` type, so a missing translation fails the type check.
 
-- **Add a project:** add an object to the `projects` array. `category` controls the label, and `repoUrl` is optional.
-- **Change contact details or links:** edit the `profile` object.
-- **Change skills, services, or experience:** edit `skillGroups`, `services`, or `experience`.
+- **Add a project:** add an entry to `projectsMeta` (category, technologies, screenshots, optional results), then add its text under `projects.items` in both locale files.
+- **Add screenshots:** save a full-size and a 640 px thumbnail as `public/media/<id>.webp` and `<id>-thumb.webp`, list them in the project's `media`, and add captions in both locale files.
+- **Change contact details or links:** edit the `contact` object.
+- **Change skills, services, or experience:** edit the matching section in each locale file.
 - **Replace the CV:** overwrite `public/CV_Abdulrahman_Emad.pdf`.
+
+Client work under NDA is shown anonymised and only with aggregate numbers. Keep client names, source documents, and private data out of `public/`.
 
 ## Design and motion
 

@@ -22,6 +22,29 @@
     background: hsl(var(--primary) / 0.25);
   }
 
+  /* Arabic is a connected script: no tracking, and a little more line height. */
+  :lang(ar) body,
+  [dir="rtl"] {
+    letter-spacing: 0;
+    font-feature-settings: normal;
+  }
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4 {
+    letter-spacing: 0;
+    line-height: 1.35;
+  }
+  [dir="rtl"] h1 {
+    line-height: 1.25;
+  }
+  /* Terminal-style output and code stay left-to-right in every language. */
+  .ltr-island {
+    direction: ltr;
+    unicode-bidi: isolate;
+    text-align: left;
+  }
+
   :focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 3px;
@@ -30,6 +53,10 @@
 }
 
 @layer utilities {
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-foreground focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-background;
+  }
+
   /* Faint engineering grid used behind the hero, fading out toward the edges. */
   .bg-grid {
     background-image:
@@ -45,4 +72,9 @@
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Unlayered so it beats Tailwind's tracking utilities in RTL. */
+[dir="rtl"] [class*="tracking-"] {
+  letter-spacing: 0;
 }
