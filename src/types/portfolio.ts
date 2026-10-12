@@ -129,6 +129,8 @@ export interface Service {
 export interface ExperienceItem {
   role: string;
   company: string;
+  /** Short engagement label shown as a pill, e.g. "Freelance, remote". */
+  type: string;
   period: string;
   location: string;
   points: string[];
@@ -138,11 +140,6 @@ export interface SkillGroup {
   title: string;
   icon: IconKey;
   skills: string[];
-}
-
-export interface KbTopic {
-  keys: string[];
-  answers: string[];
 }
 
 export interface Content {
@@ -207,6 +204,7 @@ export interface Content {
 
   experience: {
     title: string;
+    description: string;
     items: ExperienceItem[];
     certificateTitle: string;
     certificateText: string;
@@ -273,7 +271,9 @@ export interface Content {
     suggestions: string[];
     email: string;
     whatsapp: string;
-    kb: KbTopic[];
+    contactForm: string;
+    subtitle: string;
+    clear: string;
   };
 
   notFound: { seoTitle: string; seoDescription: string; title: string; text: string; cta: string };

@@ -49,7 +49,7 @@ const NotFound = () => {
     console.error("404 Error: User attempted to access non-existent route:", pathname);
   }, [pathname]);
   return (
-    <LanguageProvider lang={lang}>
+    <LanguageProvider key={lang} lang={lang}>
       <Body />
     </LanguageProvider>
   );

@@ -70,8 +70,12 @@ const Page = () => {
   );
 };
 
+/**
+ * Keyed by language so a switch remounts the page. Scroll-reveal variants are
+ * "once" animations: items created after the first reveal would otherwise stay hidden.
+ */
 const Index = ({ lang = "en" }: { lang?: Lang }) => (
-  <LanguageProvider lang={lang}>
+  <LanguageProvider key={lang} lang={lang}>
     <Page />
   </LanguageProvider>
 );

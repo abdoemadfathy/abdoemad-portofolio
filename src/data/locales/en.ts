@@ -40,7 +40,7 @@ export const en: Content = {
   hero: {
     availability: "Open to QA roles, remote or on-site",
     headline: "I find the bugs before your users do.",
-    tagline: "QA & Automation Engineer based in Cairo, Egypt",
+    tagline: "QA & Automation Engineer",
     stackLine: "Core stack: Manual, API, SQL, Selenium/Java.",
     seeProjects: "See my projects",
     illustrationNote: "An illustration of how I report a suite run. Press run again to replay it.",
@@ -75,7 +75,7 @@ export const en: Content = {
       {
         icon: "graduation",
         title: "Education",
-        text: "Bachelor's degree in Artificial Intelligence, Faculty of Computers and Information, Cairo. Expected graduation 2028.",
+        text: "Bachelor's degree in Artificial Intelligence, Faculty of Computers and Information. Expected graduation 2028.",
       },
       {
         icon: "test",
@@ -105,12 +105,39 @@ export const en: Content = {
 
   experience: {
     title: "Experience",
+    description: "Freelance client work and a structured internship, across manual, API, SQL, and automated testing.",
     items: [
+      {
+        role: "Freelance QA Engineer",
+        company: "Independent, through Mostaql and Freelancer.com",
+        type: "Freelance, remote",
+        period: "Jun 2026 to present",
+        location: "Remote",
+        points: [
+          "Deliver end-to-end manual testing for clients on freelancing platforms, with 3 production-ready projects completed.",
+          "Social entertainment app: ran a one-month pre-release test cycle covering real-time chat and core app features, with structured regression checks and defect reports ranked by severity.",
+          "E-commerce and digital platforms: ran full QA cycles on 2 projects, including UI/UX validation, functional checks, and regression testing before launch.",
+        ],
+      },
+      {
+        role: "Software Manual Tester",
+        company: "Test IO",
+        type: "Freelance, remote",
+        period: "Nov 2025 to May 2026",
+        location: "Remote",
+        points: [
+          "Ran functional, exploratory, and usability tests on live web and mobile apps.",
+          "Documented high-severity bugs and visual glitches with clear reproduction steps and logs.",
+          "Validated edge cases and cross-device and cross-browser compatibility across multiple projects.",
+          "Kept a high bug-acceptance rate in line with Test IO quality standards.",
+        ],
+      },
       {
         role: "Software Quality Assurance Engineer (Internship)",
         company: "Digital Egypt Pioneers Initiative (DEPI)",
+        type: "Internship, hybrid",
         period: "Jun 2025 to Nov 2025",
-        location: "Cairo, Egypt, hybrid",
+        location: "Cairo, Egypt",
         points: [
           "Designed, reviewed, and executed end-to-end test cases and test suites based on ISTQB standards and SDLC/STLC best practices.",
           "Developed functional test scripts using Java, Selenium WebDriver, and TestNG for automated web testing.",
@@ -373,8 +400,8 @@ export const en: Content = {
     open: "Open portfolio assistant",
     close: "Close assistant",
     welcome:
-      "Hi! I'm Abdulrahman's portfolio assistant. Ask me anything about his QA skills, experience, projects, or contact info.",
-    placeholder: "Ask about skills, projects, contact...",
+      "Hi! I'm Abdulrahman's assistant. Ask me about his skills, projects, and experience, or how to reach him. You can write in English or Arabic, whichever is easier.",
+    placeholder: "Type your question",
     send: "Send message",
     typing: "Typing…",
     fallback:
@@ -382,82 +409,9 @@ export const en: Content = {
     suggestions: ["What are his skills?", "API testing experience?", "Show me his projects", "How can I contact him?"],
     email: "Email",
     whatsapp: "WhatsApp",
-    kb: [
-      {
-        keys: ["who", "about", "abdulrahman", "yourself", "introduce", "background"],
-        answers: [
-          "Abdulrahman Emad is a Software Quality Assurance Engineer specializing in Manual & Automated Testing, API Validation, and End-to-End Web & Mobile QA. He's based in Cairo, Egypt and open to remote & on-site roles.",
-        ],
-      },
-      {
-        keys: ["automat", "selenium", "testng", "cucumber", "bdd", "java", "script"],
-        answers: [
-          "For automation, Abdulrahman writes functional test scripts in Java with Selenium WebDriver and TestNG, and uses Cucumber (BDD) for readable, behavior-driven scenarios. Projects are managed with Maven and Git.",
-        ],
-      },
-      {
-        keys: ["manual", "test case", "bug", "defect", "regression", "smoke", "sanity", "jira", "zephyr"],
-        answers: [
-          "On the manual side, he designs and executes end-to-end test cases, runs smoke, sanity and regression cycles, and writes detailed bug reports with reproduction steps and severity in Jira & Zephyr Scale.",
-        ],
-      },
-      {
-        keys: ["api", "postman", "rest", "endpoint", "json", "restassured"],
-        answers: [
-          "Abdulrahman performs API testing with Postman, validating status codes, JSON payloads and environment variables. He built a full Restful Booker API testing project and a REST API regression suite.",
-        ],
-      },
-      {
-        keys: ["sql", "database", "db", "query", "data"],
-        answers: [
-          "He does database testing by writing SQL queries (SQL Server) to verify backend data integrity, and has practiced joins and stored procedures on a blood bank database.",
-        ],
-      },
-      {
-        keys: ["skill", "tool", "technolog", "stack", "language"],
-        answers: [
-          "Core skills: Manual & Automation Testing, API and Database Testing, Selenium WebDriver, Postman, TestNG, Cucumber (BDD), Jira, Zephyr Scale, SQL Server, Maven, Git & GitHub, plus Java, SQL, Python, C++ and HTML/CSS.",
-        ],
-      },
-      {
-        keys: ["experience", "work", "depi", "intern", "job", "career", "certificate"],
-        answers: [
-          "He completed a Software QA Engineer internship at the Digital Egypt Pioneers Initiative (DEPI): test case design, Selenium/TestNG automation, Postman API testing, SQL database testing and defect tracking in Jira. The certificate is shown in the Experience section.",
-        ],
-      },
-      {
-        keys: ["project", "portfolio", "github", "opencart", "swag", "guru", "booker"],
-        answers: [
-          "Highlighted projects: OpenCart E-Commerce QA, Swag Labs Test Automation, Restful Booker API Testing, and a freelance mobile app engagement. Code is on GitHub: github.com/abdoemadfathy. Open any project in the Projects section for details and screenshots.",
-        ],
-      },
-      { keys: ["cv", "resume"], answers: ["You can download his CV with the 'Download CV' button at the top of the page."] },
-      {
-        keys: ["service", "offer", "hire", "freelance"],
-        answers: [
-          "Services: Functional Testing, UI/UX Testing, Cross-Browser & Cross-Device Testing, Bug Reporting, Regression Testing and Test Case Design & Execution. Want to discuss a project? Reach out below!",
-        ],
-      },
-      {
-        keys: ["contact", "email", "reach", "whatsapp", "phone", "linkedin", "call"],
-        answers: [
-          "You can email Abdulrahman at abdoemadfathy1@gmail.com, message him on WhatsApp at +20 112 699 8251, or connect on LinkedIn (linkedin.com/in/abdulrahmanemadfathy).",
-        ],
-      },
-      {
-        keys: ["where", "location", "cairo", "remote", "relocat"],
-        answers: ["He's based in Cairo, Egypt and open to both remote and on-site opportunities."],
-      },
-      {
-        keys: ["educat", "study", "university", "degree", "college"],
-        answers: ["He's studying for a Bachelor's in Artificial Intelligence at the Faculty of Computers and Information in Cairo (expected 2028)."],
-      },
-      { keys: ["thank", "thanks", "great", "awesome"], answers: ["You're welcome! Anything else you'd like to know about Abdulrahman?"] },
-      {
-        keys: ["hello", "hi", "hey", "salam", "good morning", "good evening"],
-        answers: ["Hello! I'm Abdulrahman's assistant. Ask me about his QA skills, automation, API or SQL testing, projects, or how to contact him."],
-      },
-    ],
+    contactForm: "Contact form",
+    subtitle: "Ask in English or Arabic",
+    clear: "Start over",
   },
 
   notFound: {
