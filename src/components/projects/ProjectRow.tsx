@@ -1,6 +1,7 @@
 import { useId, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Check, Images, Plus } from "lucide-react";
+import { CiCard, CiPill } from "@/components/projects/CiBadge";
 import MediaGallery from "@/components/gallery/MediaGallery";
 import ResultsPanel from "@/components/gallery/ResultsPanel";
 import TechBadge from "@/components/TechBadge";
@@ -54,6 +55,12 @@ const ProjectRow = ({ project, open, onToggle }: ProjectRowProps) => {
               <>
                 <span aria-hidden className="h-3 w-px bg-border" />
                 <span>{project.period}</span>
+              </>
+            )}
+            {project.liveRun && (
+              <>
+                <span aria-hidden className="h-3 w-px bg-border" />
+                <CiPill />
               </>
             )}
             {project.media.length > 0 && (
@@ -132,6 +139,7 @@ const ProjectRow = ({ project, open, onToggle }: ProjectRowProps) => {
                 )}
               </div>
             </div>
+            {project.liveRun && <CiCard />}
             {project.results && (
               <div>
                 <h4 className="mb-3 text-sm font-medium">{p.results}</h4>

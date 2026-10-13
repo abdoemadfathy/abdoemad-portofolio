@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FileDown, Github, Linkedin, Mail, MessageCircle, type LucideIcon } from "lucide-react";
+import { Briefcase, FileDown, Github, Linkedin, Mail, MessageCircle, type LucideIcon } from "lucide-react";
 import TestRunPanel from "@/components/TestRunPanel";
 import profileImage from "@/assets/profile-image.jpg";
 import { usePortfolio } from "@/i18n/LanguageProvider";
@@ -11,6 +11,7 @@ const SOCIAL_ICONS: Record<SocialKey, LucideIcon> = {
   github: Github,
   email: Mail,
   whatsapp: MessageCircle,
+  mostaql: Briefcase,
 };
 
 /** Headline words rise out of a mask, one after another. */

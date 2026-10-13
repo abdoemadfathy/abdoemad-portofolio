@@ -108,11 +108,11 @@ export const topics: Topic[] = [
     keys: ["who is", "who's", "who is he", "tell me about him", "about him", "introduce", "introduction", "background", "profile", "summary", "overview", "مين هو", "من هو", "عرفني", "نبذه", "تعريف", "عنه", "حدثني عنه"],
     en: [
       "Abdulrahman Emad is a QA & Automation Engineer working in manual testing, API testing, SQL, and Selenium with Java. He has worked on e-commerce, banking, mobile, and API projects, and he's open to junior QA roles, internships, and freelance contracts.",
-      "Abdulrahman is a detail-oriented QA & Automation Engineer. His core stack is manual testing, API testing with Postman, SQL, and Selenium with Java and TestNG. He has completed 10+ testing projects.",
+      "Abdulrahman is a detail-oriented QA & Automation Engineer. His core stack is manual testing, API testing with Postman, SQL, and Selenium with Java and TestNG. His portfolio here shows 9 QA projects, from e-commerce and APIs to mobile and SQL.",
     ],
     ar: [
       "عبدالرحمن عماد مهندس ضمان جودة وأتمتة اختبارات، يعمل في الاختبار اليدوي واختبار الـ API وSQL وSelenium مع Java. عمل على مشاريع تجارة إلكترونية وبنوك وموبايل وAPI، وهو متاح لوظائف الجودة المبتدئة والتدريب والعمل الحر.",
-      "عبدالرحمن مهندس ضمان جودة يهتم بالتفاصيل. أدواته الأساسية: الاختبار اليدوي، واختبار الـ API عبر Postman، وSQL، وSelenium مع Java وTestNG. أنجز أكثر من 10 مشاريع اختبار.",
+      "عبدالرحمن مهندس ضمان جودة يهتم بالتفاصيل. أدواته الأساسية: الاختبار اليدوي، واختبار الـ API عبر Postman، وSQL، وSelenium مع Java وTestNG. يعرض الموقع 9 مشاريع اختبار، من التجارة الإلكترونية وواجهات API إلى الموبايل وSQL.",
     ],
     next: ["experience", "skills", "projects"],
   },
@@ -240,6 +240,17 @@ export const topics: Topic[] = [
     next: ["manual", "bugs"],
   },
   {
+    id: "process",
+    keys: ["how i work", "how he works", "bug report sample", "sample bug", "bug sample", "good bug report", "example report", "طريقة عملي", "طريقه عمله", "مثال تقرير", "نموذج تقرير", "تقرير جيد", "تقرير ضعيف"],
+    en: [
+      "The How I work section lays out his five steps (understand, plan, execute, report, retest and automate) and has a toggle that compares a weak bug report with a strong one, with severity, priority, steps, and evidence. The sample is illustrative and anonymised.",
+    ],
+    ar: [
+      "قسم طريقة عملي يشرح خطواته الخمس (الفهم، التخطيط، التنفيذ، الإبلاغ، إعادة الاختبار والأتمتة)، وفيه زر يقارن بين تقرير خطأ ضعيف وتقرير قوي بالخطورة والأولوية والخطوات والأدلة. والمثال توضيحي ومجهول الهوية.",
+    ],
+    next: ["bugs", "method"],
+  },
+  {
     id: "services",
     keys: ["service", "services", "offer", "what do you test", "what can you test", "what does he test", "scope", "خدمات", "خدماتك", "بيقدم", "يقدم", "ايه اللي بتختبره", "ما الذي يختبره"],
     en: [
@@ -256,10 +267,10 @@ export const topics: Topic[] = [
     id: "experience",
     keys: ["experience", "experienced", "work history", "career", "worked", "employment", "years", "how long", "background in", "خبره", "خبرة", "خبراته", "اشتغل", "يشتغل", "بيشتغل", "اشتغلت", "شغله", "khebra", "khebrto", "khebrt","شغل", "مسيره", "سنين", "كام سنه", "سنوات"],
     en: [
-      "Three roles so far, newest first: Freelance QA Engineer (Jun 2026 to present, through Mostaql and Freelancer.com), Software Manual Tester at Test IO (Nov 2025 to May 2026), and a QA internship at the Digital Egypt Pioneers Initiative, DEPI (Jun 2025 to Nov 2025). Together with personal projects, that's 10+ testing projects.",
+      "Three roles so far, newest first: Freelance QA Engineer (Jun 2026 to present, through Mostaql and Freelancer.com), Software Manual Tester at Test IO (Nov 2025 to May 2026), and a QA internship at the Digital Egypt Pioneers Initiative, DEPI (Jun 2025 to Nov 2025).",
     ],
     ar: [
-      "ثلاث محطات حتى الآن، من الأحدث: مهندس ضمان جودة بنظام العمل الحر (يونيو 2026 حتى الآن، عبر مستقل وFreelancer.com)، ومختبر برمجيات يدوي في Test IO (نوفمبر 2025 إلى مايو 2026)، وتدريب في مبادرة رواد مصر الرقمية DEPI (يونيو 2025 إلى نوفمبر 2025). ومع المشاريع الشخصية يتجاوز العدد 10 مشاريع اختبار.",
+      "ثلاث محطات حتى الآن، من الأحدث: مهندس ضمان جودة بنظام العمل الحر (يونيو 2026 حتى الآن، عبر مستقل وFreelancer.com)، ومختبر برمجيات يدوي في Test IO (نوفمبر 2025 إلى مايو 2026)، وتدريب في مبادرة رواد مصر الرقمية DEPI (يونيو 2025 إلى نوفمبر 2025).",
     ],
     next: ["freelance", "testio", "depi"],
   },
@@ -267,10 +278,10 @@ export const topics: Topic[] = [
     id: "freelance",
     keys: ["freelance", "freelancer", "freelancing", "mostaql", "mostaqaql", "client", "clients", "independent", "contract", "عمل حر", "فريلانس", "فري لانس", "مستقل", "عميل", "عملاء", "فريلانسر"],
     en: [
-      "Since June 2026 he has worked as a freelance QA engineer through Mostaql and Freelancer.com, delivering end-to-end manual testing and completing 3 production-ready projects: a social entertainment app with a one-month pre-release cycle, and full QA cycles on 2 e-commerce and digital platforms. Client details stay confidential, so the site shows that work anonymised.",
+      "Since June 2026 he has worked as a freelance QA engineer through Mostaql and Freelancer.com, delivering end-to-end manual testing and completing 3 production-ready projects: a social entertainment app with a one-month pre-release cycle, and full QA cycles on 2 e-commerce and digital platforms. Client details stay confidential, so the site shows that work anonymised. His Mostaql profile is mostaql.com/u/Abdo_Emad_Fathy.",
     ],
     ar: [
-      "منذ يونيو 2026 يعمل عبدالرحمن كمهندس جودة مستقل عبر مستقل وFreelancer.com، وينفذ اختبارًا يدويًا شاملًا، وأنجز 3 مشاريع جاهزة للإنتاج: تطبيق ترفيه اجتماعي بدورة اختبار قبل الإطلاق لمدة شهر، ودورات جودة كاملة على منصتين للتجارة الإلكترونية والمحتوى الرقمي. تفاصيل العملاء سرية، لذلك يعرض الموقع هذه الأعمال دون ذكر أسماء.",
+      "منذ يونيو 2026 يعمل عبدالرحمن كمهندس جودة مستقل عبر مستقل وFreelancer.com، وينفذ اختبارًا يدويًا شاملًا، وأنجز 3 مشاريع جاهزة للإنتاج: تطبيق ترفيه اجتماعي بدورة اختبار قبل الإطلاق لمدة شهر، ودورات جودة كاملة على منصتين للتجارة الإلكترونية والمحتوى الرقمي. تفاصيل العملاء سرية، لذلك يعرض الموقع هذه الأعمال دون ذكر أسماء. وملفه على مستقل: mostaql.com/u/Abdo_Emad_Fathy.",
     ],
     next: ["social-entertainment-app", "hire"],
   },
@@ -309,10 +320,10 @@ export const topics: Topic[] = [
     id: "projects",
     keys: ["project", "projects", "portfolio", "work samples", "samples", "examples", "case study", "case studies", "what has he built", "مشروع", "مشاريع", "مشاريعه", "mashro3", "mashro3at", "mashari3", "mashroat", "اعمال", "أعمال", "نماذج", "امثله", "أمثلة"],
     en: [
-      "There are 10+ projects in the Projects section, each with details and screenshots where available: OpenCart e-commerce QA, a Swag Labs automation framework, Restful Booker API testing, a REST API regression suite, a social entertainment app, a vegetables e-commerce platform, Swag Labs manual testing, Gazara mobile test cases, an Agile Travel bug report, a Blood Bank SQL project, and Guru99 Bank. Which one should I tell you about?",
+      "There are 9 projects in the Projects section, each with details and screenshots where available. The main ones: OpenCart e-commerce QA, a Swag Labs automation framework that runs on GitHub Actions, Restful Booker API testing, a social entertainment app, and a vegetables e-commerce platform. Under \"Show more\" there are a REST API regression suite, Gazara mobile test cases, an Agile Travel bug report, and a Blood Bank SQL project. Which one should I tell you about?",
     ],
     ar: [
-      "في قسم المشاريع أكثر من 10 مشاريع، لكل منها تفاصيل ولقطات حيث توفرت: اختبار OpenCart للتجارة الإلكترونية، وإطار أتمتة Swag Labs، واختبار Restful Booker للـ API، ومجموعة انحدار لـ REST API، وتطبيق ترفيه اجتماعي، ومنصة خضروات للتجارة الإلكترونية، واختبار Swag Labs اليدوي، وحالات اختبار موبايل لتطبيق Gazara، وتقرير أخطاء Agile Travel، ومشروع SQL لبنك الدم، واختبار Guru99 Bank. أيها تحب أن أحدثك عنه؟",
+      "في قسم المشاريع 9 مشاريع، لكل منها تفاصيل ولقطات حيث توفرت. الأساسية: اختبار OpenCart للتجارة الإلكترونية، وإطار أتمتة Swag Labs الذي يعمل تلقائيًا على GitHub Actions، واختبار Restful Booker للـ API، وتطبيق ترفيه اجتماعي، ومنصة خضروات للتجارة الإلكترونية. وتحت زر \"عرض المزيد\" مجموعة انحدار لـ REST API، وحالات اختبار موبايل لتطبيق Gazara، وتقرير أخطاء Agile Travel، ومشروع SQL لبنك الدم. أيها تحب أن أحدثك عنه؟",
     ],
     next: ["opencart", "swag-automation", "agile-travel"],
   },
@@ -329,12 +340,12 @@ export const topics: Topic[] = [
   },
   {
     id: "swag-automation",
-    keys: ["swag", "swag labs", "saucedemo", "sauce demo", "extent", "listener", "extent report", "سواج", "سواغ"],
+    keys: ["swag", "swag labs", "saucedemo", "sauce demo", "extent", "listener", "extent report", "سواج", "سواغ", "github actions", "ci", "pipeline", "badge", "last run", "latest run", "اكشن", "تشغيل تلقائي"],
     en: [
-      "Swag Labs shows up twice: a manual testing project (login, add to cart, checkout, sorting, with detailed test cases and bug reports), and an automation framework in Java, Selenium, and TestNG with a listener that builds a timestamped Extent report. The latest run: 27 passed, 0 failed, 5 skipped.",
+      "The Swag Labs project is an automation framework in Java, Selenium, and TestNG with a listener that builds a timestamped Extent report. It runs automatically on GitHub Actions on every change and every Monday, and the badge on that project shows the latest result, read live from the repository.",
     ],
     ar: [
-      "Swag Labs يظهر في مشروعين: مشروع اختبار يدوي (تسجيل الدخول والإضافة للسلة والدفع والترتيب، مع حالات اختبار وتقارير أخطاء مفصلة)، وإطار أتمتة بـ Java وSelenium وTestNG مع Listener ينشئ تقرير Extent مؤرخًا. آخر تشغيل: 27 ناجحًا، 0 فاشلًا، 5 متخطًّى.",
+      "مشروع Swag Labs إطار أتمتة بـ Java وSelenium وTestNG مع Listener ينشئ تقرير Extent مؤرخًا. ويعمل تلقائيًا على GitHub Actions مع كل تعديل وكل يوم اثنين، والشارة على المشروع تعرض آخر نتيجة مقروءة مباشرة من المستودع.",
     ],
     next: ["automation", "projects"],
   },
@@ -388,13 +399,6 @@ export const topics: Topic[] = [
     next: ["sql", "projects"],
   },
   {
-    id: "guru99-bank",
-    keys: ["guru99", "guru 99", "banking", "bank app", "جورو", "بنك", "بنكي"],
-    en: ["The Guru99 Bank project is end-to-end manual testing of a banking application: test cases for all modules, detailed bug reports, and regression testing."],
-    ar: ["مشروع Guru99 Bank اختبار يدوي شامل لتطبيق بنكي: حالات اختبار لكل الوحدات، وتقارير أخطاء مفصلة، واختبار انحدار."],
-    next: ["projects"],
-  },
-  {
     id: "github",
     keys: ["github", "repo", "repository", "source code", "code samples", "git hub", "جيت هاب", "كود", "الكود"],
     en: ["His code is on GitHub at github.com/abdoemadfathy. Projects with public code have a View code button in the Projects section."],
@@ -434,10 +438,10 @@ export const topics: Topic[] = [
     id: "contact",
     keys: ["contact", "email", "e-mail", "mail", "reach", "get in touch", "message him", "whatsapp", "whats app", "phone", "number", "call", "linkedin", "talk to", "speak to", "تواصل", "اتواصل", "اكلمه", "كلمه", "رقم", "ايميل", "بريد", "واتس", "واتساب", "لينكد", "راسل", "اراسله", "رقمه", "تليفون", "موبايله"],
     en: [
-      "You can email him at abdoemadfathy1@gmail.com, message him on WhatsApp at +20 112 699 8251, or find him on LinkedIn (linkedin.com/in/abdulrahmanemadfathy). There's also a contact form at the bottom of the page.",
+      "You can email him at abdoemadfathy1@gmail.com, message him on WhatsApp at +20 112 699 8251, find him on LinkedIn (linkedin.com/in/abdulrahmanemadfathy), or hire him through his Mostaql profile (mostaql.com/u/Abdo_Emad_Fathy). There's also a contact form at the bottom of the page.",
     ],
     ar: [
-      "يمكنك مراسلته على abdoemadfathy1@gmail.com، أو عبر واتساب على +20 112 699 8251، أو على LinkedIn (linkedin.com/in/abdulrahmanemadfathy). وفي أسفل الصفحة أيضًا نموذج تواصل.",
+      "يمكنك مراسلته على abdoemadfathy1@gmail.com، أو عبر واتساب على +20 112 699 8251، أو على LinkedIn (linkedin.com/in/abdulrahmanemadfathy)، أو التعاقد معه عبر ملفه على مستقل (mostaql.com/u/Abdo_Emad_Fathy). وفي أسفل الصفحة أيضًا نموذج تواصل.",
     ],
     contact: true,
     next: ["hire", "cv"],
@@ -541,6 +545,7 @@ export const chipLabels: Record<string, { en: string; ar: string }> = {
   "bloodbank-sql": { en: "Blood Bank SQL", ar: "SQL بنك الدم" },
   mobile: { en: "Mobile testing", ar: "اختبار الموبايل" },
   method: { en: "How he works", ar: "طريقة عمله" },
+  process: { en: "Sample bug report", ar: "نموذج تقرير خطأ" },
   services: { en: "What he can test", ar: "ما يستطيع اختباره" },
   github: { en: "GitHub", ar: "GitHub" },
 };

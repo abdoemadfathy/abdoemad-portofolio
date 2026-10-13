@@ -6,7 +6,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { LANG_PATHS, usePortfolio } from "@/i18n/LanguageProvider";
 import { EASE_OUT, SPRING_SOFT } from "@/lib/motion";
 
-const IDS = ["about", "experience", "skills", "projects", "contact"] as const;
+const IDS = ["about", "experience", "skills", "projects", "process", "contact"] as const;
 
 const Header = () => {
   const { t, lang, contact } = usePortfolio();

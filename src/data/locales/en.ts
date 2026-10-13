@@ -27,7 +27,7 @@ export const en: Content = {
   ui: {
     skipToContent: "Skip to content",
     mainNav: "Main",
-    nav: { about: "About", experience: "Experience", skills: "Skills", projects: "Projects", contact: "Contact" },
+    nav: { about: "About", experience: "Experience", skills: "Skills", projects: "Projects", process: "How I work", contact: "Contact" },
     downloadCv: "Download CV",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -56,7 +56,7 @@ export const en: Content = {
     intro:
       "I am a detail-oriented Software Quality Assurance Engineer dedicated to delivering reliable, scalable, and bug-free digital products. I bridge the gap between business requirements and technical execution, so every application is functional, user-friendly, and secure before it reaches production.",
     stats: [
-      { value: 10, suffix: "+", label: "QA projects delivered" },
+      { value: 9, suffix: "", label: "QA projects showcased" },
       { value: 500, suffix: "+", label: "test cases designed for one platform" },
       { value: 50, suffix: "+", label: "bug reports filed per day on a live app" },
       { value: 6, suffix: " months", label: "QA internship at DEPI" },
@@ -188,7 +188,7 @@ export const en: Content = {
   projects: {
     title: "Selected projects",
     description: "Testing work across e-commerce, banking, API, mobile, and databases. Open a project to see what I tested and how.",
-    note: "More projects are on the way, including test automation and AI-assisted testing.",
+    note: "Client work is not listed here because of confidentiality; see Experience for the anonymised summary.",
     categories: {
       ecommerce: "E-commerce QA",
       api: "API testing",
@@ -222,6 +222,8 @@ export const en: Content = {
     },
     expand: "Show details",
     collapse: "Hide details",
+    showMore: (count) => `Show ${count} more projects`,
+    showLess: "Show fewer projects",
     items: {
       "opencart-graduation": {
         title: "E-Commerce QA Graduation Project – OpenCart",
@@ -248,10 +250,10 @@ export const en: Content = {
           "Built a Java, Selenium WebDriver, and TestNG framework with separate base, test case, and utility layers",
           "Automated the cart and checkout flows with dedicated test classes",
           "Added a TestNG listener that generates a timestamped Extent Spark report, with environment and tester details",
-          "Latest recorded run: 27 tests passed, none failed, 5 skipped, in about three minutes",
+          "The full suite of 32 tests runs headless on GitHub Actions on every change and weekly, and publishes its result to this page",
         ],
         captions: {
-          "swag-extent-report": "Execution report of the latest run: 27 passed, 0 failed, 5 skipped",
+          "swag-extent-report": "Extent report from an earlier local run (27 passed, 5 skipped); the suite now runs all 32 tests in CI",
           "swag-listener": "The TestNG listener that builds the report and adds environment details",
         },
       },
@@ -301,17 +303,6 @@ export const en: Content = {
           "Documented and tracked all identified defects through full bug life-cycle management, achieving complete test coverage aligned with business requirements",
         ],
       },
-      "swag-labs-manual": {
-        title: "Manual Testing Project – Swag Labs",
-        description:
-          "Manual testing project on the Swag Labs demo website covering Login, Add to Cart, Checkout, and Sorting functionalities with detailed test cases and bug reports.",
-        features: [
-          "Designed and executed detailed test cases with preconditions and expected/actual results",
-          "Tested multiple functionalities: Login, Add to Cart, Checkout, and Sorting",
-          "Identified critical defects using different user roles",
-          "Documented professional bug reports with severity, priority, and reproduction steps",
-        ],
-      },
       "gazara-mobile": {
         title: "Gazara Mobile App | Test Case Design",
         description:
@@ -350,16 +341,58 @@ export const en: Content = {
           "bloodbank-procedures": "Stored procedures with single and multiple parameters",
         },
       },
-      "guru99-bank": {
-        title: "Guru99 Bank Testing Project",
-        description: "End-to-end manual testing project for Guru99 Bank application, covering different modules and flows.",
-        features: [
-          "Designed test cases covering all modules",
-          "Executed comprehensive testing flows",
-          "Prepared detailed bug reports",
-          "Performed regression testing",
-        ],
-      },
+    },
+  },
+
+  ci: {
+    label: "Latest automated run",
+    passed: (n, total) => `${n} of ${total} passed`,
+    failed: (n, total) => `${n} of ${total} failed`,
+    loading: "Checking the latest run",
+    unavailable: "Live status unavailable right now",
+    ranAt: (date) => `Ran ${date}`,
+    viewRuns: "View runs on GitHub",
+    note: "Runs on GitHub Actions on every change and every Monday. The result is read live from the repository.",
+  },
+
+  process: {
+    title: "How I work",
+    description: "A repeatable routine, so every release gets the same care. Below is what a useful bug report looks like.",
+    steps: [
+      { title: "Understand", text: "Read the requirements and user stories, and ask about anything vague before writing a single test." },
+      { title: "Plan", text: "Pick what to cover and in what order, with risk first: money, data, and sign-in flows lead." },
+      { title: "Execute", text: "Run manual and exploratory passes, then automate the stable paths with Selenium or Postman." },
+      { title: "Report", text: "File defects a developer can act on without a call: steps, severity, priority, and evidence." },
+      { title: "Retest", text: "Verify each fix, run regression around it, and keep the suite running in CI." },
+    ],
+    reportTitle: "What a good bug report looks like",
+    reportIntro: "The same defect, written two ways. Switch between them.",
+    sampleNote: "Illustrative sample, anonymised. It follows the structure I use on real projects and contains no client data.",
+    weakLabel: "Vague report",
+    strongLabel: "Actionable report",
+    fields: {
+      title: "Title", environment: "Environment", severity: "Severity", priority: "Priority",
+      steps: "Steps to reproduce", expected: "Expected", actual: "Actual", evidence: "Evidence", impact: "Impact",
+    },
+    weak: {
+      title: "Form doesn't work",
+      body: "I tried to submit the booking form and it didn't work properly. Please check.",
+      missing: "No environment, no steps, no expected result, no severity, no evidence. A developer has to ask five questions before starting.",
+    },
+    strong: {
+      title: "Booking form accepts an empty Email and shows a success page",
+      environment: "Chrome 130, Windows 11, staging build",
+      severity: "High: invalid data is saved",
+      priority: "High: affects every new booking",
+      steps: [
+        "Open the booking page.",
+        "Fill in Name and Phone. Leave Email empty.",
+        "Press Submit.",
+      ],
+      expected: "An inline message says Email is required, and nothing is submitted.",
+      actual: "The Thank you page opens and a record is created with an empty Email.",
+      evidence: "Screenshot of the success page and the network response (HTTP 200) attached.",
+      impact: "Bookings arrive without a way to contact the customer.",
     },
   },
 
