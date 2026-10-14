@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -7,9 +8,10 @@ import Services from "@/components/Services";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import HowIWork from "@/components/HowIWork";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import PortfolioAssistant from "@/components/PortfolioAssistant";
+const PortfolioAssistant = lazy(() => import("@/components/PortfolioAssistant"));
 import { LANG_PATHS, LanguageProvider, usePortfolio } from "@/i18n/LanguageProvider";
 import { SITE_URL } from "@/data/portfolioData";
 import type { Lang } from "@/types/portfolio";
@@ -62,10 +64,13 @@ const Page = () => {
         <Experience />
         <Skills />
         <Projects />
+        <HowIWork />
         <Contact />
       </main>
       <Footer />
-      <PortfolioAssistant />
+      <Suspense fallback={null}>
+        <PortfolioAssistant />
+      </Suspense>
     </div>
   );
 };

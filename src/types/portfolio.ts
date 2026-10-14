@@ -4,7 +4,7 @@
 
 export type Lang = "en" | "ar";
 
-export type SocialKey = "linkedin" | "github" | "email" | "whatsapp";
+export type SocialKey = "linkedin" | "github" | "email" | "whatsapp" | "mostaql";
 
 export interface SocialLink {
   key: SocialKey;
@@ -81,6 +81,8 @@ export interface ProjectMeta {
   skills: string[];
   repoUrl?: string;
   featured: boolean;
+  /** Shows the live CI badge (reads CI_SUMMARY_URL). */
+  liveRun?: boolean;
   media: MediaFile[];
   results?: ResultGroup[];
 }
@@ -165,7 +167,7 @@ export interface Content {
   ui: {
     skipToContent: string;
     mainNav: string;
-    nav: { about: string; experience: string; skills: string; projects: string; contact: string };
+    nav: { about: string; experience: string; skills: string; projects: string; process: string; contact: string };
     downloadCv: string;
     openMenu: string;
     closeMenu: string;
@@ -228,7 +230,40 @@ export interface Content {
     resultLabels: Record<ResultKey, string>;
     expand: string;
     collapse: string;
+    showMore: (count: number) => string;
+    showLess: string;
     items: Record<string, ProjectText>;
+  };
+
+  ci: {
+    label: string;
+    passed: (n: number, total: number) => string;
+    failed: (n: number, total: number) => string;
+    loading: string;
+    unavailable: string;
+    ranAt: (date: string) => string;
+    viewRuns: string;
+    note: string;
+  };
+
+  process: {
+    title: string;
+    description: string;
+    steps: { title: string; text: string }[];
+    reportTitle: string;
+    reportIntro: string;
+    sampleNote: string;
+    weakLabel: string;
+    strongLabel: string;
+    fields: {
+      title: string; environment: string; severity: string; priority: string;
+      steps: string; expected: string; actual: string; evidence: string; impact: string;
+    };
+    weak: { title: string; body: string; missing: string };
+    strong: {
+      title: string; environment: string; severity: string; priority: string;
+      steps: string[]; expected: string; actual: string; evidence: string; impact: string;
+    };
   };
 
   contact: {

@@ -17,6 +17,7 @@ export const contact: ContactInfo = {
     { key: "github", label: "GitHub", href: "https://github.com/abdoemadfathy" },
     { key: "email", label: "Email", href: "mailto:abdoemadfathy1@gmail.com" },
     { key: "whatsapp", label: "WhatsApp", href: "https://wa.me/201126998251" },
+    { key: "mostaql", label: "Mostaql", href: "https://mostaql.com/u/Abdo_Emad_Fathy" },
   ],
 };
 
@@ -27,6 +28,11 @@ const media = (id: string, width: number, height: number) => ({
   width,
   height,
 });
+
+/** Public summary written by the Swag Labs repo's GitHub Actions workflow after each run. */
+export const CI_SUMMARY_URL =
+  "https://raw.githubusercontent.com/abdoemadfathy/Swag-Labs-ECommerce-Automation/ci-results/summary.json";
+export const CI_RUNS_URL = "https://github.com/abdoemadfathy/Swag-Labs-ECommerce-Automation/actions";
 
 /** The DEPI certificate shown in the Experience section. */
 export const certificate = media("depi-certificate", 1193, 652);
@@ -52,17 +58,19 @@ export const projectsMeta: ProjectMeta[] = [
     id: "swag-automation",
     category: "automation",
     period: "Jul 2026",
-    technologies: ["Java", "Selenium WebDriver", "TestNG", "Maven", "ExtentReports"],
-    skills: ["Test Automation", "Framework Design", "Test Reporting", "Regression Testing"],
+    technologies: ["Java", "Selenium WebDriver", "TestNG", "Maven", "ExtentReports", "GitHub Actions"],
+    skills: ["Test Automation", "Framework Design", "Test Reporting", "Regression Testing", "CI/CD"],
+    repoUrl: "https://github.com/abdoemadfathy/Swag-Labs-ECommerce-Automation",
+    liveRun: true,
     featured: true,
     media: [media("swag-extent-report", 1600, 763), media("swag-listener", 1600, 839)],
     results: [
       {
         kind: "automatedRun",
         items: [
-          { key: "passed", value: 27 },
+          { key: "passed", value: 32 },
           { key: "failed", value: 0 },
-          { key: "skipped", value: 5 },
+          { key: "skipped", value: 0 },
         ],
       },
     ],
@@ -129,16 +137,6 @@ export const projectsMeta: ProjectMeta[] = [
     media: [],
   },
   {
-    id: "swag-labs-manual",
-    category: "ecommerce",
-    period: "2025",
-    technologies: ["Manual Testing", "Test Cases", "Bug Reporting", "Test Planning", "UAT"],
-    skills: ["Manual Testing", "Test Case Design", "Bug Reporting", "UAT", "Defect Documentation"],
-    repoUrl: "https://github.com/abdoemadfathy/Manual-Testing-Project---Swag-Labs-Test-Cases-Bug-Reports-",
-    featured: true,
-    media: [],
-  },
-  {
     id: "gazara-mobile",
     category: "mobile",
     technologies: ["Manual Testing", "Excel", "Jira", "Scrum"],
@@ -181,16 +179,6 @@ export const projectsMeta: ProjectMeta[] = [
     skills: ["SQL Joins", "Stored Procedures", "Query Writing", "Relational Databases"],
     featured: false,
     media: [media("bloodbank-joins", 1424, 765), media("bloodbank-procedures", 855, 420)],
-  },
-  {
-    id: "guru99-bank",
-    category: "banking",
-    period: "Sep 2025",
-    technologies: ["Test Case Design", "Manual Testing", "Bug Reporting", "Regression Testing", "Documentation"],
-    skills: ["Test Case Design", "Manual Testing", "Bug Reporting", "Regression Testing", "Documentation"],
-    repoUrl: "https://github.com/abdoemadfathy/Testing-Portfolio",
-    featured: false,
-    media: [],
   },
 ];
 

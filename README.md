@@ -85,7 +85,8 @@ src/
 ├── components/
 │   ├── common/          Shared building blocks: Section, Reveal, icons
 │   ├── gallery/         Thumbnail grid, lazy lightbox, results bars
-│   ├── projects/        Expandable project row
+│   ├── projects/        Expandable project row and the live CI badge
+│   ├── HowIWork.tsx     Process steps and the weak vs strong bug-report sample
 │   ├── ui/              shadcn/ui primitives
 │   ├── Hero.tsx         Headline and animated test-run panel
 │   ├── About.tsx        Intro, numbers, and what I offer
@@ -112,6 +113,8 @@ src/
 
 Language-neutral facts live in [`src/data/portfolioData.ts`](src/data/portfolioData.ts). Everything a visitor reads lives in [`src/data/locales/en.ts`](src/data/locales/en.ts) and [`ar.ts`](src/data/locales/ar.ts), which share one `Content` type, so a missing translation fails the type check.
 
+- **Live CI badge:** a project with `liveRun: true` shows the latest result of its GitHub Actions run. The Swag Labs repo publishes `summary.json` to its `ci-results` branch (`CI_SUMMARY_URL` in `portfolioData.ts`). If the file can't be read the badge says so and never shows a number.
+- **Featured vs more:** projects with `featured: true` are listed first; the rest sit behind "Show more projects".
 - **Add a project:** add an entry to `projectsMeta` (category, technologies, screenshots, optional results), then add its text under `projects.items` in both locale files.
 - **Add screenshots:** save a full-size and a 640 px thumbnail as `public/media/<id>.webp` and `<id>-thumb.webp`, list them in the project's `media`, and add captions in both locale files.
 - **Change contact details or links:** edit the `contact` object.

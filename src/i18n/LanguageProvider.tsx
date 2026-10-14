@@ -22,6 +22,7 @@ export interface ResolvedProject {
   skills: string[];
   repoUrl?: string;
   featured: boolean;
+  liveRun?: boolean;
   title: string;
   description: string;
   features: string[];
@@ -53,6 +54,7 @@ const build = (lang: Lang): Portfolio => {
       skills: meta.skills,
       repoUrl: meta.repoUrl,
       featured: meta.featured,
+      liveRun: meta.liveRun,
       results: meta.results,
       title: text.title,
       description: text.description,
