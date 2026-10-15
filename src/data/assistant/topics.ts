@@ -241,12 +241,12 @@ export const topics: Topic[] = [
   },
   {
     id: "process",
-    keys: ["how i work", "how he works", "bug report sample", "sample bug", "bug sample", "good bug report", "example report", "طريقة عملي", "طريقه عمله", "مثال تقرير", "نموذج تقرير", "تقرير جيد", "تقرير ضعيف"],
+    keys: ["how i work", "how he works", "bug report sample", "sample bug", "bug sample", "good bug report", "example report", "طريقة عملي", "طريقه عمله", "مثال تقرير", "نموذج تقرير", "تقرير جيد", "تقرير ضعيف", "find the bug", "try to find", "break the form", "game", "جرب تلاقي", "لعبة"],
     en: [
-      "The How I work section lays out his five steps (understand, plan, execute, report, retest and automate) and has a toggle that compares a weak bug report with a strong one, with severity, priority, steps, and evidence. The sample is illustrative and anonymised.",
+      "The How I work section lays out his five steps (understand, plan, execute, report, retest and automate) and has a toggle that compares a weak bug report with a strong one, with severity, priority, steps, and evidence. The sample is illustrative and anonymised. Under it there is a small booking form with a hidden defect you can try to find.",
     ],
     ar: [
-      "قسم طريقة عملي يشرح خطواته الخمس (الفهم، التخطيط، التنفيذ، الإبلاغ، إعادة الاختبار والأتمتة)، وفيه زر يقارن بين تقرير خطأ ضعيف وتقرير قوي بالخطورة والأولوية والخطوات والأدلة. والمثال توضيحي ومجهول الهوية.",
+      "قسم طريقة عملي يشرح خطواته الخمس (الفهم، التخطيط، التنفيذ، الإبلاغ، إعادة الاختبار والأتمتة)، وفيه زر يقارن بين تقرير خطأ ضعيف وتقرير قوي بالخطورة والأولوية والخطوات والأدلة. والمثال توضيحي ومجهول الهوية. وتحته نموذج حجز صغير فيه خطأ مخفي يمكنك محاولة اكتشافه.",
     ],
     next: ["bugs", "method"],
   },

@@ -5,15 +5,11 @@ import Section from "@/components/common/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/common/Reveal";
 import { usePortfolio } from "@/i18n/LanguageProvider";
 import { EASE_OUT } from "@/lib/motion";
+import { Field, StrongReport } from "@/components/process/ReportView";
+import FindTheBug from "@/components/process/FindTheBug";
 
 type Mode = "weak" | "strong";
 
-const Field = ({ label, children }: { label: string; children: React.ReactNode }) => (
-  <div className="grid gap-1 py-3 sm:grid-cols-[9.5rem_1fr] sm:gap-6">
-    <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</dt>
-    <dd className="min-w-0 text-sm leading-relaxed">{children}</dd>
-  </div>
-);
 
 const HowIWork = () => {
   const { t } = usePortfolio();
@@ -88,27 +84,15 @@ const HowIWork = () => {
                   <div className="py-4 text-sm leading-relaxed text-destructive">{p.weak.missing}</div>
                 </dl>
               ) : (
-                <dl className="divide-y divide-border/60">
-                  <Field label={p.fields.title}><span className="font-medium">{p.strong.title}</span></Field>
-                  <Field label={p.fields.environment}>{p.strong.environment}</Field>
-                  <Field label={p.fields.severity}>{p.strong.severity}</Field>
-                  <Field label={p.fields.priority}>{p.strong.priority}</Field>
-                  <Field label={p.fields.steps}>
-                    <ol className="list-decimal space-y-1 ps-5">
-                      {p.strong.steps.map((s) => (
-                        <li key={s}>{s}</li>
-                      ))}
-                    </ol>
-                  </Field>
-                  <Field label={p.fields.expected}>{p.strong.expected}</Field>
-                  <Field label={p.fields.actual}>{p.strong.actual}</Field>
-                  <Field label={p.fields.evidence}>{p.strong.evidence}</Field>
-                  <Field label={p.fields.impact}>{p.strong.impact}</Field>
-                </dl>
+                <StrongReport />
               )}
             </motion.div>
           </AnimatePresence>
         </div>
+      </Reveal>
+
+      <Reveal className="mt-16">
+        <FindTheBug />
       </Reveal>
     </Section>
   );

@@ -259,6 +259,12 @@ export interface Content {
       title: string; environment: string; severity: string; priority: string;
       steps: string; expected: string; actual: string; evidence: string; impact: string;
     };
+    game: {
+      title: string; intro: string; nameLabel: string; phoneLabel: string; emailLabel: string;
+      submit: string; reset: string; privacy: string; idleHint: string; errorHint: string;
+      success: string; okHint: string; report: string; found: string; showMe: string;
+      nameError: string; phoneError: string; demoName: string;
+    };
     weak: { title: string; body: string; missing: string };
     strong: {
       title: string; environment: string; severity: string; priority: string;
