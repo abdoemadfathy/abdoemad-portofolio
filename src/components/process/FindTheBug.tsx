@@ -4,6 +4,7 @@ import { Bug, Check, RotateCcw } from "lucide-react";
 import { StrongReport } from "@/components/process/ReportView";
 import { usePortfolio } from "@/i18n/LanguageProvider";
 import { EASE_OUT } from "@/lib/motion";
+import { track } from "@/lib/analytics";
 
 type Outcome = "idle" | "error" | "ok" | "buggy" | "found";
 
@@ -138,7 +139,10 @@ const FindTheBug = () => {
                   </p>
                   <button
                     type="button"
-                    onClick={() => setOutcome("found")}
+                    onClick={() => {
+                      track("find_bug_found");
+                      setOutcome("found");
+                    }}
                     className="inline-flex items-center gap-2 rounded-full border border-primary/50 px-4 py-2 text-sm text-primary transition-colors hover:bg-primary/10"
                   >
                     <Bug className="h-4 w-4" aria-hidden />
