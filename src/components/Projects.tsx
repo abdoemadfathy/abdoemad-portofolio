@@ -6,6 +6,7 @@ import { Reveal } from "@/components/common/Reveal";
 import ProjectRow from "@/components/projects/ProjectRow";
 import { usePortfolio } from "@/i18n/LanguageProvider";
 import { EASE_OUT } from "@/lib/motion";
+import { track } from "@/lib/analytics";
 
 const Projects = () => {
   const { t, projects } = usePortfolio();
@@ -20,7 +21,10 @@ const Projects = () => {
       key={project.id}
       project={project}
       open={openId === project.id}
-      onToggle={() => setOpenId((cur) => (cur === project.id ? null : project.id))}
+      onToggle={() => {
+        if (openId !== project.id) track("project_open", project.id);
+        setOpenId((cur) => (cur === project.id ? null : project.id));
+      }}
     />
   );
 

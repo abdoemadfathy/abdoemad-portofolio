@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 const PortfolioAssistant = lazy(() => import("@/components/PortfolioAssistant"));
 import { LANG_PATHS, LanguageProvider, usePortfolio } from "@/i18n/LanguageProvider";
 import { SITE_URL } from "@/data/portfolioData";
+import { classifyLink, track } from "@/lib/analytics";
 import type { Lang } from "@/types/portfolio";
 
 const Page = () => {
@@ -33,6 +34,16 @@ const Page = () => {
     sameAs: contact.socials.filter((s) => s.key === "linkedin" || s.key === "github").map((s) => s.href),
     knowsAbout: ["Software testing", "Test automation", "API testing", "SQL", "Selenium", "Java"],
   };
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as Element | null)?.closest?.("a");
+      const hit = a && classifyLink(a);
+      if (hit) track(hit.name, hit.label);
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">

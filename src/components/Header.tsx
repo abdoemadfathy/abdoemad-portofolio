@@ -37,8 +37,17 @@ const Header = () => {
   }, []);
 
   const go = (id: string) => {
-    setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const target = document.getElementById(id);
+    if (!target) return;
+    const scroll = () => target.scrollIntoView({ behavior: "smooth" });
+    if (open) {
+      // On phones the menu closing in the same frame cancels a smooth scroll that has just started,
+      // so wait for its exit animation (0.25 s) to finish first.
+      setOpen(false);
+      window.setTimeout(scroll, 300);
+    } else {
+      scroll();
+    }
   };
 
   const langLink = (
