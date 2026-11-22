@@ -52,6 +52,11 @@ export const en: Content = {
   tools: { label: "Tools I work with" },
 
   about: {
+    video: {
+      label: "Introduction video: Abdulrahman Emad, Software QA Engineer",
+      caption: "A 40-second introduction: who I am, what I test, and the tools I use.",
+      unsupported: "Your browser can't play this video.",
+    },
     title: "About",
     intro:
       "I am a detail-oriented Software Quality Assurance Engineer dedicated to delivering reliable, scalable, and bug-free digital products. I bridge the gap between business requirements and technical execution, so every application is functional, user-friendly, and secure before it reaches production.",

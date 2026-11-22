@@ -193,6 +193,7 @@ export interface Content {
   tools: { label: string };
 
   about: {
+    video: { label: string; caption: string; unsupported: string };
     title: string;
     intro: string;
     stats: Stat[];
