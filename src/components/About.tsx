@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import Section from "@/components/common/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/common/Reveal";
 import { ICONS } from "@/components/common/icons";
+import IntroVideo from "@/components/about/IntroVideo";
 import profileImage from "@/assets/profile-image.jpg";
 import { usePortfolio } from "@/i18n/LanguageProvider";
 
@@ -47,6 +48,8 @@ const About = () => {
       <Reveal>
         <p className="font-display text-2xl font-medium leading-snug tracking-tight md:text-[1.75rem]">{about.intro}</p>
       </Reveal>
+
+      <IntroVideo />
 
       <dl ref={statsRef} className="mt-12 grid grid-cols-2 gap-x-6 gap-y-8 border-y border-border py-8 lg:grid-cols-4">
         {about.stats.map((s) => (

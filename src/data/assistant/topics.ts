@@ -240,6 +240,17 @@ export const topics: Topic[] = [
     next: ["manual", "bugs"],
   },
   {
+    id: "video",
+    keys: ["video", "intro video", "introduction video", "watch", "فيديو", "فيديو تعريفي", "تعريف", "شاهد"],
+    en: [
+      "There is a 40-second introduction video at the top of the About section: who he is, what he tests, and the tools he uses. It only loads when you press play.",
+    ],
+    ar: [
+      "يوجد فيديو تعريفي مدته 40 ثانية في أعلى قسم عني: من هو، وماذا يختبر، وما الأدوات التي يستخدمها. ولا يُحمَّل إلا عند الضغط على تشغيل.",
+    ],
+    next: ["about", "projects"],
+  },
+  {
     id: "process",
     keys: ["how i work", "how he works", "bug report sample", "sample bug", "bug sample", "good bug report", "example report", "طريقة عملي", "طريقه عمله", "مثال تقرير", "نموذج تقرير", "تقرير جيد", "تقرير ضعيف", "find the bug", "try to find", "break the form", "game", "جرب تلاقي", "لعبة"],
     en: [
@@ -546,6 +557,7 @@ export const chipLabels: Record<string, { en: string; ar: string }> = {
   mobile: { en: "Mobile testing", ar: "اختبار الموبايل" },
   method: { en: "How he works", ar: "طريقة عمله" },
   process: { en: "Sample bug report", ar: "نموذج تقرير خطأ" },
+  video: { en: "Intro video", ar: "الفيديو التعريفي" },
   services: { en: "What he can test", ar: "ما يستطيع اختباره" },
   github: { en: "GitHub", ar: "GitHub" },
 };
