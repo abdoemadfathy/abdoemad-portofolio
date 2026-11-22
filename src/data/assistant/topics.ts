@@ -449,10 +449,10 @@ export const topics: Topic[] = [
     id: "contact",
     keys: ["contact", "email", "e-mail", "mail", "reach", "get in touch", "message him", "whatsapp", "whats app", "phone", "number", "call", "linkedin", "talk to", "speak to", "تواصل", "اتواصل", "اكلمه", "كلمه", "رقم", "ايميل", "بريد", "واتس", "واتساب", "لينكد", "راسل", "اراسله", "رقمه", "تليفون", "موبايله"],
     en: [
-      "You can email him at abdoemadfathy1@gmail.com, message him on WhatsApp at +20 112 699 8251, find him on LinkedIn (linkedin.com/in/abdulrahmanemadfathy), or hire him through his Mostaql profile (mostaql.com/u/Abdo_Emad_Fathy). There's also a contact form at the bottom of the page.",
+      "You can email him at abdulrahmanemadfathy@gmail.com, message him on WhatsApp at +20 112 699 8251, find him on LinkedIn (linkedin.com/in/abdulrahmanemadfathy), or hire him through his Mostaql profile (mostaql.com/u/Abdo_Emad_Fathy). There's also a contact form at the bottom of the page.",
     ],
     ar: [
-      "يمكنك مراسلته على abdoemadfathy1@gmail.com، أو عبر واتساب على +20 112 699 8251، أو على LinkedIn (linkedin.com/in/abdulrahmanemadfathy)، أو التعاقد معه عبر ملفه على مستقل (mostaql.com/u/Abdo_Emad_Fathy). وفي أسفل الصفحة أيضًا نموذج تواصل.",
+      "يمكنك مراسلته على abdulrahmanemadfathy@gmail.com، أو عبر واتساب على +20 112 699 8251، أو على LinkedIn (linkedin.com/in/abdulrahmanemadfathy)، أو التعاقد معه عبر ملفه على مستقل (mostaql.com/u/Abdo_Emad_Fathy). وفي أسفل الصفحة أيضًا نموذج تواصل.",
     ],
     contact: true,
     next: ["hire", "cv"],

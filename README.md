@@ -6,7 +6,7 @@
 
 Portfolio website · Cairo, Egypt
 
-[**Live site**](https://abdoemad-portofolio.lovable.app) · [Download CV](public/CV_Abdulrahman_Emad.pdf) · [LinkedIn](https://www.linkedin.com/in/abdulrahmanemadfathy) · [Email](mailto:abdoemadfathy1@gmail.com)
+[**Live site**](https://abdoemad-portofolio.lovable.app) · [Download CV](public/CV_Abdulrahman_Emad.pdf) · [LinkedIn](https://www.linkedin.com/in/abdulrahmanemadfathy) · [Email](mailto:abdulrahmanemadfathy@gmail.com)
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
@@ -144,7 +144,7 @@ The current live site is published through [Lovable](https://lovable.dev), which
 
 **Abdulrahman Emad**, QA & Automation Engineer, Cairo, Egypt
 
-- Email: [abdoemadfathy1@gmail.com](mailto:abdoemadfathy1@gmail.com)
+- Email: [abdulrahmanemadfathy@gmail.com](mailto:abdulrahmanemadfathy@gmail.com)
 - Phone and WhatsApp: [+20 112 699 8251](https://wa.me/201126998251)
 - LinkedIn: [abdulrahmanemadfathy](https://www.linkedin.com/in/abdulrahmanemadfathy)
 - GitHub: [abdoemadfathy](https://github.com/abdoemadfathy)
