@@ -8,14 +8,14 @@ import type { ContactInfo, ProjectMeta, TestRunLine } from "@/types/portfolio";
 export const SITE_URL = "https://abdoemad-portofolio.lovable.app";
 
 export const contact: ContactInfo = {
-  email: "abdoemadfathy1@gmail.com",
+  email: "abdulrahmanemadfathy@gmail.com",
   phone: "+201126998251",
   phoneDisplay: "+20 112 699 8251",
   cv: { url: "/CV_Abdulrahman_Emad.pdf", downloadName: "Abdulrahman_Emad_CV.pdf" },
   socials: [
     { key: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/abdulrahmanemadfathy" },
     { key: "github", label: "GitHub", href: "https://github.com/abdoemadfathy" },
-    { key: "email", label: "Email", href: "mailto:abdoemadfathy1@gmail.com" },
+    { key: "email", label: "Email", href: "mailto:abdulrahmanemadfathy@gmail.com" },
     { key: "whatsapp", label: "WhatsApp", href: "https://wa.me/201126998251" },
     { key: "mostaql", label: "Mostaql", href: "https://mostaql.com/u/Abdo_Emad_Fathy" },
   ],
